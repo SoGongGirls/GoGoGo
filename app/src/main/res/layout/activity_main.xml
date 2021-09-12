@@ -26,6 +26,18 @@
             app:itemTextColor="@color/orange3"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_bottom" />
+
     </FrameLayout>
+
+
+<!--    &lt;!&ndash;  서랍 기능의 레이아웃  &ndash;&gt;-->
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/drawer"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        app:headerLayout="@id/drawer_layout"-->
+<!--        app:menu="@menu/menu_drawer" />-->
 
 </androidx.drawerlayout.widget.DrawerLayout>
