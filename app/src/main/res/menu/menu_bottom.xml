@@ -4,27 +4,20 @@
 
     <item
         android:id="@+id/bottom_navigation_1"
-        android:title="홈"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:enabled="true"
-        app:showAsAction="ifRoom"/>
-
-    <item
-        android:id="@+id/bottom_navigation_2"
         android:title="메뉴 추천"
         android:icon="@drawable/ic_baseline_menu_book_24"
         android:enabled="true"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/bottom_navigation_3"
+        android:id="@+id/bottom_navigation_2"
         android:title="나의 냉장고"
         android:icon="@drawable/ic_baseline_restaurant_menu_24"
         android:enabled="true"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/bottom_navigation_4"
+        android:id="@+id/bottom_navigation_3"
         android:title="커뮤니티"
         android:icon="@drawable/ic_baseline_people_24"
         android:enabled="true"

@@ -13,13 +13,8 @@ import android.view.View;
 import com.example.gogogo.fragment.Fragment1;
 import com.example.gogogo.fragment.Fragment2;
 import com.example.gogogo.fragment.Fragment3;
-import com.example.gogogo.fragment.Fragment4;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import android.view.View;
-import android.widget.ListView;
-
-import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment1;
     Fragment fragment2;
     Fragment fragment3;
-    Fragment fragment4;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
-        fragment4 = new Fragment4();
 
         /* 초기화면 설정 - fragment1으로 고정 */
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
@@ -73,10 +66,6 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.bottom_navigation_3:
                                 getSupportFragmentManager().beginTransaction().
                                         replace(R.id.container, fragment3).commit();
-                                return true;
-                            case R.id.bottom_navigation_4:
-                                getSupportFragmentManager().beginTransaction().
-                                        replace(R.id.container, fragment4).commit();
                                 return true;
                         }
                         return false;
