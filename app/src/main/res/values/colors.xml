@@ -11,4 +11,6 @@
     <color name="orange2">#ff9116</color>
     <color name="orange3">#f8730a</color>
     <color name="orange4">#ea5806</color>
+    <color name="silver">#C4C4C4</color>
+    <color name="gray">#969696</color>
 </resources>

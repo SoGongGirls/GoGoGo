@@ -22,8 +22,8 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:background="@color/white"
-            app:itemIconTint="@color/orange3"
-            app:itemTextColor="@color/orange3"
+            app:itemIconTint="@color/gray"
+            app:itemTextColor="@color/gray"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_bottom" />
 

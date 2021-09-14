@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,6 +14,8 @@ import com.example.gogogo.R;
 
 public class Fragment1 extends Fragment {
 
+    TextView toolbar_title;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -20,9 +23,13 @@ public class Fragment1 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment1, container, false);
 
+        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
+        toolbar_title.setText("메뉴 추천");
+
 
         return view;
 
     }// OnCreateView
+
 
 }
