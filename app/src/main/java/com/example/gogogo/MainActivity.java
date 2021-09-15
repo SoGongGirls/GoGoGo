@@ -18,10 +18,10 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    NavigationView navigationView;
     BottomNavigationView bottomNavigationView;
     DrawerLayout drawerLayout;
     View drawer;
+    View my_page;
 
     Fragment fragment1;
     Fragment fragment2;
@@ -40,10 +40,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom);
+        my_page = findViewById(R.id.my_page);
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
+
+        my_page.bringToFront();
+        my_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(drawer);
+            }
+        });
+
 
         /* 초기화면 설정 - fragment1으로 고정 */
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();

@@ -23,8 +23,10 @@ public class Fragment3 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment3, container, false);
 
+        /* 객체 선언 */
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
-        toolbar_title.setText("커뮤니티");
+
+        toolbar_title.setText("커뮤니티");  // 제목 설정
 
 
         return view;
