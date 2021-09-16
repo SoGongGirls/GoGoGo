@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/community_item"
+    android:layout_width="match_parent"
+    android:layout_height="120sp"
+    android:layout_margin="15sp"
+    android:paddingTop="15sp"
+    android:paddingBottom="15sp"
+    android:paddingLeft="20sp"
+    android:background="@drawable/round1">
+
+    <TextView
+        android:id="@+id/content_nick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8sp"
+        android:text="닉네임"
+        android:textSize="15sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_nick"
+        android:layout_marginBottom="10sp"
+        android:text="글 제목"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/content_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_title"
+        android:text="2021/09/16 09:58"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5sp"
+        android:layout_marginRight="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_outline_thumb_up_24"
+            app:tint="@color/orange4" />
+
+        <TextView
+            android:id="@+id/content_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_gravity="center_vertical"
+            android:text="000"
+            android:textColor="@color/orange4" />
+
+    </LinearLayout>
+
+</RelativeLayout>

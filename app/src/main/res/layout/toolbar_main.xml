@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/toolbar"
-            android:background="@color/silver" />
+            android:background="@color/silver1" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/toolbar"
@@ -33,7 +33,7 @@
                     android:layout_gravity="center"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
