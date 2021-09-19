@@ -19,7 +19,7 @@ public class Community_insert1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_insert1);
 
-        /* 객체 선언 */
+        /* 객체 초기화 */
         toolbar_title = findViewById(R.id.toolbar_title);
         close = findViewById(R.id.close);
 

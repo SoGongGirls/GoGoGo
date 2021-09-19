@@ -29,7 +29,7 @@ public class Fragment3 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment3, container, false);
 
-        /* 객체 선언 */
+        /* 객체 초기화 */
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);

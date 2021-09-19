@@ -24,7 +24,7 @@ public class Community1 extends Fragment {
 
         View view = inflater.inflate(R.layout.community1, container, false);
 
-        /* 객체 선언 */
+        /* 객체 초기화 */
         community_write = (FloatingActionButton) view.findViewById(R.id.community_write);
 
         /* 글 작성 버튼 클릭 */

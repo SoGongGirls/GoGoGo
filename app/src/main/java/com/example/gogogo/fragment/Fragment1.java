@@ -26,7 +26,7 @@ public class Fragment1 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment1, container, false);
 
-        /* 객체 선언 */
+        /* 객체 초기화 */
         NavigationView navigationView = view.findViewById(R.id.drawer);
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
 
