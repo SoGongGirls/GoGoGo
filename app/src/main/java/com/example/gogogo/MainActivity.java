@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment2;
     Fragment fragment3;
 
-    DeliveryList deliveryList;
-    StoreList storeList;
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_drawer, menu);

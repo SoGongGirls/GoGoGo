@@ -1,18 +1,14 @@
-package com.example.gogogo;
+package com.example.gogogo.storeInfo;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.gogogo.fragment.Fragment1;
-import com.example.gogogo.fragment.Fragment2;
-import com.example.gogogo.fragment.Fragment3;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.gogogo.R;
+import com.example.gogogo.storeInfo.DeliveryList;
+import com.example.gogogo.storeInfo.StoreList;
 import com.google.android.material.tabs.TabLayout;
 
 public class StoreRecommend extends AppCompatActivity {
