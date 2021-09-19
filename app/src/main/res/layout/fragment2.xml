@@ -34,7 +34,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:layout_margin="15sp"
         android:orientation="vertical">
 
@@ -47,18 +46,32 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
             android:padding="15sp"
             android:text="만들 수 있는 레시피 검색"
             android:textAlignment="center"
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <!-- 추가한 재료 리스트 -->
-        <ListView
-            android:id="@+id/ingredient_list"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"/>
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 추가한 재료 리스트 -->
+                <ListView
+                    android:id="@+id/ingredient_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 

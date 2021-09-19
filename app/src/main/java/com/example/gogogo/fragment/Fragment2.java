@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.gogogo.R;
@@ -49,6 +51,32 @@ public class Fragment2 extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+        /* 리스트뷰 출력 예시 - 테스트용으로 넣은 거라 나중에 지워도 됨 */
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일",
+                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+
+
 
         return view;
 
