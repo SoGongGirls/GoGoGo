@@ -89,40 +89,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        /* 매장 리스트 */
-        storeList = new StoreList();
-        deliveryList = new DeliveryList();
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, storeList).commit();
-
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("매장"));
-        tabs.addTab(tabs.newTab().setText("배달"));
-
-        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
-                Log.d("MainActivity", "선택된 탭 : " + position);
-
-                Fragment selected = null;
-                if (position == 0) {
-                    selected = storeList;
-                } else if (position == 1) {
-                    selected = deliveryList;
-                }
-
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, selected).commit();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) { }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) { }
-        });
-
     }
 }
