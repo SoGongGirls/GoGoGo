@@ -34,7 +34,7 @@ public class Ingredient_add extends AppCompatActivity {
         close = findViewById(R.id.close);
         datePick = findViewById(R.id.datePick);
 
-        toolbar_title.setText("추가하기");  // 제목 설정
+        toolbar_title.setText("재료 추가하기");  // 제목 설정
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override

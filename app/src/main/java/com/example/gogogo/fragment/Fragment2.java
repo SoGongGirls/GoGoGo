@@ -14,12 +14,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.gogogo.R;
+import com.example.gogogo.ingredient.IngredientAdapter;
 import com.example.gogogo.ingredient.Ingredient_add;
 
 import java.util.List;
 
 public class Fragment2 extends Fragment {
 
+    IngredientAdapter adapter;
     TextView toolbar_title;
     ListView ingredient_list;
     ImageView ingredient_add;
@@ -32,17 +34,19 @@ public class Fragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment2, container, false);
 
         /* 객체 초기화 */
+        adapter = new IngredientAdapter();
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         ingredient_list = (ListView) view.findViewById(R.id.ingredient_list);
         ingredient_add = (ImageView) view.findViewById(R.id.ingredient_add);
 
-        toolbar_title.setText("나의 냉장고");  // 제목 설정
+        toolbar_title.setText("나의 냉장고");   // 제목 설정
+        ingredient_list.setAdapter(adapter);  // 리스트뷰 어댑터 설정
 
         ingredient_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(getActivity(), Ingredient_add.class);
-                startActivity(intent1);
+                Intent intent = new Intent(getActivity(), Ingredient_add.class);
+                startActivity(intent);
             }
         });
 
