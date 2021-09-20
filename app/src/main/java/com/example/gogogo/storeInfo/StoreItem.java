@@ -3,22 +3,16 @@ package com.example.gogogo.storeInfo;
 import android.graphics.drawable.Drawable;
 
 public class StoreItem {
+    private int storeId;
     private Drawable storeImage;
     private String storeName;
     private String storeGrade;
     private String storeDistance;
 
-    public void setStoreImage(Drawable image) {
-        storeImage = image;
-    }
-    public void setStoreName(String name) {
-        storeName = name;
-    }
-    public void setStoreGrade(String grade) {
-        storeGrade = grade;
-    }
-    public void setStoreDistance(String distance) {
-        storeDistance = distance;
+    public StoreItem(String name, String degree, int id){
+        this.storeName = name;
+        this.storeGrade = degree;
+        this.storeId = id;
     }
 
     public Drawable getStoreImage() {
