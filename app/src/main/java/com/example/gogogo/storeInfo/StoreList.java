@@ -36,7 +36,7 @@ public class StoreList extends ListFragment {
         //맨처음 초기화 데이터 보여주기(select)
         if (database != null) {
             String tableName = "store_data";
-            String query = "select name, degree, id from "+tableName;
+            String query = "select name, degree, id, logo from "+tableName;
             Cursor cursor = database.rawQuery(query, null);
             Log.v(TAG, "조회된 데이터 수 : " + cursor.getCount());
 
@@ -45,8 +45,9 @@ public class StoreList extends ListFragment {
                 String name = cursor.getString(0);
                 String degree = cursor.getString(1);
                 int id = cursor.getInt(2);
+                String logo = cursor.getString(3);
 
-                adapter.addItem(new StoreItem(name, degree, id));
+                adapter.addItem(new StoreItem(name, degree, id, logo));
             }
             cursor.close();
         } else {
@@ -65,7 +66,7 @@ public class StoreList extends ListFragment {
         String nameStr = item.getStoreName();
         String gradeStr = item.getStoreGrade();
         String distanceStr = item.getStoreDistance();
-        Drawable imageDrawable = item.getStoreImage();
+        String logoStr = item.getStoreLogo();
 
     }
 

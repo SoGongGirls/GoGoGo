@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    static String NAME = "store_data2.db"; //to-do
+    static String NAME = "store_data5.db";   // to-do*
     static SQLiteDatabase.CursorFactory FACTORY = null;
     static String PACKEGE = "com.example.gogogo.storeInfo"; //to-do
-    static String DB = "store_data2.db"; //To-do
+    static String DB = "store_data5.db";   // to-do*
     static int VERSION  = 1;
 
     public DatabaseHelper(Context context) {

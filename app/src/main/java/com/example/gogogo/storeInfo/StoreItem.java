@@ -1,22 +1,22 @@
 package com.example.gogogo.storeInfo;
 
-import android.graphics.drawable.Drawable;
 
 public class StoreItem {
     private int storeId;
-    private Drawable storeImage;
+    private String storeLogo;
     private String storeName;
     private String storeGrade;
     private String storeDistance;
 
-    public StoreItem(String name, String degree, int id){
+    public StoreItem(String name, String degree, int id, String logo){
         this.storeName = name;
         this.storeGrade = degree;
         this.storeId = id;
+        this.storeLogo = logo;
     }
 
-    public Drawable getStoreImage() {
-        return this.storeImage;
+    public String getStoreLogo() {
+        return this.storeLogo;
     }
     public String getStoreName() {
         return this.storeName;

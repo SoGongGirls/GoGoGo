@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.gogogo.R;
 
 public class StoreItemView extends LinearLayout {
@@ -49,4 +50,7 @@ public class StoreItemView extends LinearLayout {
         tvDistance.setText(distance);
     }
 
+    public void setImage(String url){
+        Glide.with(this).load(url).into(imageView);
+    }
 }

@@ -64,6 +64,7 @@ public class StoreListAdapter extends BaseAdapter {
         view.setName(item.getStoreName());
         view.setGrade(item.getStoreGrade());
         view.setDistance(item.getStoreDistance());
+        view.setImage(item.getStoreLogo());
 
         return view;
     }
