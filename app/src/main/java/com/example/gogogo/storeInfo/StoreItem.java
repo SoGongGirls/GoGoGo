@@ -24,6 +24,7 @@ public class StoreItem {
     public String getStoreGrade() {
         return this.storeGrade;
     }
+    public int getStoreId() { return this.storeId; }
     public String getStoreDistance() {
         return this.storeDistance;
     }

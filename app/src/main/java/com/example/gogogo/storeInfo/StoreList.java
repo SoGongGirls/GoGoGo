@@ -1,5 +1,6 @@
 package com.example.gogogo.storeInfo;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.core.content.ContextCompat;
@@ -54,6 +56,19 @@ public class StoreList extends ListFragment {
             Log.e(TAG, "selectData() db없음.");
         }
         storeList.setAdapter(adapter);
+
+        // 가게 정보 상세보기
+        storeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), StoreDetail.class);
+                StoreItem item = (StoreItem) adapter.getItem(i);
+                String id = String.valueOf(item.getStoreId());
+                Log.v(TAG, "id는" + id);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+        });
 
         return view;
 
