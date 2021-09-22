@@ -25,5 +25,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="내 주변 매장 확인하기" />
+        android:layout_marginTop="10dp"
+        android:text="내 주변 매장 확인하기"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="내 위치 확인하기"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 위치"
+        android:textSize="15dp"/>
 </LinearLayout>
