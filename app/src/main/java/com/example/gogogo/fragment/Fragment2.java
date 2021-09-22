@@ -1,7 +1,9 @@
 package com.example.gogogo.fragment;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.gogogo.R;
 import com.example.gogogo.ingredient.IngredientAdapter;
+import com.example.gogogo.ingredient.IngredientDBQuery;
+import com.example.gogogo.ingredient.IngredientItem;
 import com.example.gogogo.ingredient.Ingredient_add;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment2 extends Fragment {
@@ -27,6 +32,8 @@ public class Fragment2 extends Fragment {
     TextView toolbar_title;
     ListView ingredient_list;
     ImageView ingredient_add;
+    String TAG = "프래그먼트2";
+    SQLiteDatabase DB;
 
     @Nullable
     @Override
@@ -52,31 +59,26 @@ public class Fragment2 extends Fragment {
             }
         });
 
+        IngredientDBQuery IQ = new IngredientDBQuery(getActivity());
+        ArrayList<IngredientItem> items = IQ.AllData();
+        //데이터 가져오기
+        Log.v(TAG, ""+IQ.countDB());
+        if (IQ.countDB() >0){
+            for(int i=0; i<IQ.countDB() ; i++){
+                IngredientItem item = items.get(i);
+                String date = item.getIngredient_date().replaceFirst("-", "년 ").replaceFirst("-", "월 ")+"일";
+                adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                        item.getIngredient_name(),date,
+                        ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+            }
+
+        }
+
 
         /* 리스트뷰 출력 예시 - 테스트용으로 넣은 거라 나중에 지워도 됨 */
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
                 "아보카도", "2021년 9월 19일",
                 ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
-
-
 
         return view;
 
