@@ -12,6 +12,7 @@ public class IngredientItem {
     Drawable ingredient_icon;   // 재료 선택 아이콘
     boolean check;
 
+
     public Drawable getIngredient_img() {
         return ingredient_img;
     }
@@ -24,23 +25,17 @@ public class IngredientItem {
         return ingredient_name;
     }
 
-    public void setIngredient_name(String ingredient_name) {
-        this.ingredient_name = ingredient_name;
-    }
+    public void setIngredient_name(String ingredient_name) { this.ingredient_name = ingredient_name; }
 
     public String getIngredient_date() { return ingredient_date; }
 
-    public void setIngredient_date(String ingredient_date) {
-        this.ingredient_date = ingredient_date;
-    }
+    public void setIngredient_date(String ingredient_date) { this.ingredient_date = ingredient_date; }
 
     public Drawable getIngredient_icon() {
         return ingredient_icon;
     }
 
-    public void setIngredient_icon(Drawable ingredient_icon) {
-        this.ingredient_icon = ingredient_icon;
-    }
+    public void setIngredient_icon(Drawable ingredient_icon) { this.ingredient_icon = ingredient_icon; }
 
     public boolean isCheck() {
         return check;
