@@ -10,7 +10,7 @@ public class IngredientItem {
     String ingredient_name;     // 재료 이름
     String ingredient_date;     // 재료 유통기한
     Drawable ingredient_icon;   // 재료 선택 아이콘
-    boolean check;
+    boolean check = false;
 
 
     public Drawable getIngredient_img() {

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -22,6 +23,7 @@ import com.example.gogogo.ingredient.IngredientAdapter;
 import com.example.gogogo.ingredient.IngredientDBQuery;
 import com.example.gogogo.ingredient.IngredientItem;
 import com.example.gogogo.ingredient.Ingredient_add;
+import com.example.gogogo.ingredient.Recommend_recipe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,7 @@ public class Fragment2 extends Fragment {
     ImageView ingredient_add;
     String TAG = "프래그먼트2";
     SQLiteDatabase DB;
+    Button recipe_search;
 
     @Nullable
     @Override
@@ -47,10 +50,12 @@ public class Fragment2 extends Fragment {
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         ingredient_list = (ListView) view.findViewById(R.id.ingredient_list);
         ingredient_add = (ImageView) view.findViewById(R.id.ingredient_add);
+        recipe_search = (Button) view.findViewById(R.id.recipe_search);
 
         toolbar_title.setText("나의 냉장고");   // 제목 설정
         ingredient_list.setAdapter(adapter);  // 리스트뷰 어댑터 설정
 
+        //재료 추가버튼
         ingredient_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,9 +64,9 @@ public class Fragment2 extends Fragment {
             }
         });
 
+        //보여줄 데이터 가져오기
         IngredientDBQuery IQ = new IngredientDBQuery(getActivity());
         ArrayList<IngredientItem> items = IQ.AllData();
-        //데이터 가져오기
         Log.v(TAG, ""+IQ.countDB());
         if (IQ.countDB() >0){
             for(int i=0; i<IQ.countDB() ; i++){
@@ -74,11 +79,29 @@ public class Fragment2 extends Fragment {
 
         }
 
+        //레시피 검색
+        recipe_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //선택한 재료 이름 가져오기
+                String inputING="";
+                for(int i=0; i<adapter.getCount(); i++){
+                    IngredientItem item = (IngredientItem) adapter.getItem(i);
+                    if(item.isCheck()){
+                        //true 일때,
+                        inputING += item.getIngredient_name();
+                        inputING += " ";
+                    }
+                }
+                Log.v(TAG, inputING);
 
-        /* 리스트뷰 출력 예시 - 테스트용으로 넣은 거라 나중에 지워도 됨 */
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일",
-                ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+                Intent intent2 = new Intent(getActivity(), Recommend_recipe.class);
+                intent2.putExtra("inputING", inputING);
+                startActivity(intent2);
+            }
+        });
+
+
 
         return view;
 
