@@ -1,4 +1,4 @@
-package com.example.gogogo.survey;
+package com.example.gogogo.storeInfo;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -22,9 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.gogogo.GpsTracker;
-import com.example.gogogo.MainActivity;
 import com.example.gogogo.R;
-import com.example.gogogo.storeInfo.StoreRecommend;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,6 +35,9 @@ public class SurveyResult extends AppCompatActivity {
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+
+    public static double myLatitude;   // 내 위치 위도
+    public static double myLongitude;   // 내 위치 경도
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,18 +63,18 @@ public class SurveyResult extends AppCompatActivity {
         final TextView textView2 = (TextView) findViewById(R.id.textView2);  // 내 위치 보여주는 텍스트뷰
         Button button2 = (Button) findViewById(R.id.button2);  // 내 위치 확인 버튼
 
+        gpsTracker = new GpsTracker(SurveyResult.this);
+
+        myLatitude = gpsTracker.getLatitude();
+        myLongitude = gpsTracker.getLongitude();
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gpsTracker = new GpsTracker(SurveyResult.this);
-
-                double latitude = gpsTracker.getLatitude();
-                double longitude = gpsTracker.getLongitude();
-
-                String address = getCurrentAddress(latitude, longitude);
+                String address = getCurrentAddress(myLatitude, myLongitude);
                 textView2.setText(address);
 
-                Toast.makeText(SurveyResult.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude,
+                Toast.makeText(SurveyResult.this, "현재위치 \n위도 " + myLatitude + "\n경도 " + myLongitude,
                         Toast.LENGTH_LONG).show();
             }
         });

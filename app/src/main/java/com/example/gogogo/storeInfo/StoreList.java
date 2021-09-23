@@ -38,7 +38,7 @@ public class StoreList extends ListFragment {
         //맨처음 초기화 데이터 보여주기(select)
         if (database != null) {
             String tableName = "store_data";
-            String query = "select name, degree, id, logo from "+tableName;
+            String query = "select name, degree, id, logo, latitude, longitude from "+tableName;
             Cursor cursor = database.rawQuery(query, null);
             Log.v(TAG, "조회된 데이터 수 : " + cursor.getCount());
 
@@ -48,8 +48,10 @@ public class StoreList extends ListFragment {
                 String degree = cursor.getString(1);
                 int id = cursor.getInt(2);
                 String logo = cursor.getString(3);
+                double latitude = cursor.getDouble(4);
+                double longitude = cursor.getDouble(5);
 
-                adapter.addItem(new StoreItem(name, degree, id, logo));
+                adapter.addItem(new StoreItem(name, degree, id, logo, latitude, longitude));
             }
             cursor.close();
         } else {
@@ -74,16 +76,16 @@ public class StoreList extends ListFragment {
 
     }
 
-    @Override
-    public void onListItemClick (ListView l, View v, int position, long id) {
-        StoreItem item = (StoreItem) l.getItemAtPosition(position) ;
-
-        String nameStr = item.getStoreName();
-        String gradeStr = item.getStoreGrade();
-        String distanceStr = item.getStoreDistance();
-        String logoStr = item.getStoreLogo();
-
-    }
+//    @Override
+//    public void onListItemClick (ListView l, View v, int position, long id) {
+//        StoreItem item = (StoreItem) l.getItemAtPosition(position) ;
+//
+//        String nameStr = item.getStoreName();
+//        String gradeStr = item.getStoreGrade();
+//        String distanceStr = item.getStoreDistance();
+//        String logoStr = item.getStoreLogo();
+//
+//    }
 
     public void openDB() {
         Log.v(TAG, "openDB() 실행");

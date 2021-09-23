@@ -46,8 +46,9 @@ public class StoreItemView extends LinearLayout {
         tvGrade.setText(grade);
     }
 
-    public void setDistance(String distance){
-        tvDistance.setText(distance);
+    public void setDistance(double distance){
+        String distance2 = String.format("%.2f", distance);
+        tvDistance.setText(distance2 + " km");
     }
 
     public void setImage(String url){
