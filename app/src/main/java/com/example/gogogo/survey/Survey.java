@@ -1,4 +1,4 @@
-package com.example.gogogo.storeInfo;
+package com.example.gogogo.survey;
 
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.gogogo.R;
 
-public class Survey {
+public class Survey extends AppCompatActivity {
 
     // 질문
     TextView question;
