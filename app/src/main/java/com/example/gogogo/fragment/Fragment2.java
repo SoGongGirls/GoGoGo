@@ -64,6 +64,10 @@ public class Fragment2 extends Fragment {
             }
         });
 
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
+                "아보카도", "2021년 9월 19일");
+
+
         //보여줄 데이터 가져오기
         IngredientDBQuery IQ = new IngredientDBQuery(getActivity());
         ArrayList<IngredientItem> items = IQ.AllData();
@@ -73,8 +77,7 @@ public class Fragment2 extends Fragment {
                 IngredientItem item = items.get(i);
                 String date = item.getIngredient_date().replaceFirst("-", "년 ").replaceFirst("-", "월 ")+"일";
                 adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                        item.getIngredient_name(),date,
-                        ContextCompat.getDrawable(getActivity(), R.drawable.ic_baseline_delete_24));
+                        item.getIngredient_name(),date);
             }
 
         }

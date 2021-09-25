@@ -25,7 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F44336"
+            android:background="@color/orange3"
             android:orientation="horizontal"
             android:paddingLeft="20dp"
             android:paddingTop="30dp"
@@ -294,7 +294,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="# 재료"
-                android:textColor="#F44336"
+                android:textColor="@color/orange3"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -378,7 +378,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="# 조리순서"
-                android:textColor="#F44336"
+                android:textColor="@color/orange3"
                 android:textStyle="bold"
                 android:textSize="20dp" />
 
@@ -405,7 +405,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:text="# 요리후기"
-                android:textColor="#F44336"
+                android:textColor="@color/orange3"
                 android:textStyle="bold"
                 android:textSize="20dp" />
 
@@ -452,7 +452,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="15dp"
-                            android:background="#FF5722"
+                            android:background="@color/orange3"
                             android:text="저장"
                             android:textColor="@color/white"
                             android:textSize="16dp"
@@ -462,7 +462,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:backgroundTint="#FF5722"
+                            android:backgroundTint="@color/orange3"
                             android:text="취소"
                             android:textColor="@color/white"
                             android:textSize="16dp"

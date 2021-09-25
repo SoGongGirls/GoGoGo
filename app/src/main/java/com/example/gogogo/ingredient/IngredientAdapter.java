@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.example.gogogo.R;
 import com.example.gogogo.storeInfo.StoreItem;
 
@@ -53,7 +55,6 @@ public class IngredientAdapter extends BaseAdapter {
         ImageView ingredient_img = (ImageView) convertView.findViewById(R.id.ingredient_img);
         TextView ingredient_name = (TextView) convertView.findViewById(R.id.ingredient_name);
         TextView ingredient_date = (TextView) convertView.findViewById(R.id.ingredient_date);
-        ImageView ingredient_icon = (ImageView) convertView.findViewById(R.id.ingredient_icon);
         Button check_icon = (Button) convertView.findViewById(R.id.check_icon);
 
         IngredientItem ingredientItem = ingredientsList.get(position);
@@ -61,7 +62,6 @@ public class IngredientAdapter extends BaseAdapter {
         ingredient_img.setImageDrawable(ingredientItem.getIngredient_img());
         ingredient_name.setText(ingredientItem.getIngredient_name());
         ingredient_date.setText(ingredientItem.getIngredient_date());
-        ingredient_icon.setImageDrawable(ingredientItem.getIngredient_icon());
 
         //재료 추가 버튼을 눌렀을 경우
         check_icon.setOnClickListener(new View.OnClickListener() {
@@ -69,12 +69,14 @@ public class IngredientAdapter extends BaseAdapter {
             public void onClick(View v) {
                 if(ingredientItem.isCheck()){ // true 추가된 상태 => 삭제한다.
                     ingredientItem.setCheck(false);
-                    check_icon.setBackgroundColor(Color.parseColor("#00BCD4"));
+                    check_icon.setBackgroundResource(R.drawable.round2);
                     check_icon.setText("추가");
+                    check_icon.setTextColor(Color.parseColor("#ffffff"));
                 }else{//false 일때 => 추가한다.
                     ingredientItem.setCheck(true);
-                    check_icon.setBackgroundColor(Color.parseColor("#ffffff"));
+                    check_icon.setBackgroundResource(R.drawable.round3);
                     check_icon.setText("제거");
+                    check_icon.setTextColor(Color.parseColor("#f8730a"));
                 }
             }
         });
@@ -82,14 +84,12 @@ public class IngredientAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void addItem(Drawable img, String name, String date, Drawable icon) {
+    public void addItem(Drawable img, String name, String date) {
         IngredientItem item = new IngredientItem();
 
         item.setIngredient_img(img);
         item.setIngredient_name(name);
         item.setIngredient_date(date);
-        item.setIngredient_icon(icon);
-
         ingredientsList.add(item);
     }
 }
