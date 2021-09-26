@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gogogo.R;
 
-public class Survey extends AppCompatActivity {
+public class SurveyMeal extends AppCompatActivity {
 
     // 질문
     TextView question;
@@ -35,7 +35,7 @@ public class Survey extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.survey_meal);
 
         question = (TextView) findViewById(R.id.question);
 
