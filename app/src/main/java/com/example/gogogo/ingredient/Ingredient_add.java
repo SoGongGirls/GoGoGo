@@ -73,7 +73,7 @@ public class Ingredient_add extends AppCompatActivity {
                 //DB에 데이터 등록하기.
                 IngredientDBQuery IQ = new IngredientDBQuery(getApplicationContext());
                 String name2 = name.getText().toString();
-                //2020년 8월 14일 -> 2020-08-04
+                //2020년 08월 14일 -> 2020-08-04
                 String date2 = dateSet.getText().toString().replace("년 ", "-").replace("월 " , "-").replace("일", "");
                 Log.v(TAG, date2);
 //                SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -105,7 +105,7 @@ public class Ingredient_add extends AppCompatActivity {
 
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                dateSet.setText(String.format("%d년 %d월 %d일", year, month+1, day));
+                dateSet.setText(String.format("%d년 %02d월 %d일", year, month+1, day));//날짜 변환 입력문제로 수정
             }
         };
     }
