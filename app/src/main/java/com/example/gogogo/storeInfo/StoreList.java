@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.core.content.ContextCompat;
@@ -17,6 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
 import com.example.gogogo.R;
+
+import java.util.Collections;
+import java.util.Comparator;
 
 public class StoreList extends ListFragment {
     SQLiteDatabase database;
@@ -58,6 +62,59 @@ public class StoreList extends ListFragment {
             Log.e(TAG, "selectData() db없음.");
         }
         storeList.setAdapter(adapter);
+
+
+        // 리스트 정렬 기능
+        Button button3 = (Button) view.findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Comparator<StoreItem> gradeDesc = new Comparator<StoreItem>() {
+                    @Override
+                    public int compare(StoreItem o1, StoreItem o2) {
+                        int ret = 0;
+
+                        if (o1.getStoreGrade().compareTo(o2.getStoreGrade()) < 0)
+                            ret = 1;
+                        else if (o1.getStoreGrade().compareTo(o2.getStoreGrade()) == 0)
+                            ret = 0;
+                        else
+                            ret = -1;
+
+                        return ret;
+                    }
+                };
+
+                Collections.sort(StoreListAdapter.items, gradeDesc);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        Button button4 = (Button) view.findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Comparator<StoreItem> distanceAsc = new Comparator<StoreItem>() {
+                    @Override
+                    public int compare(StoreItem o1, StoreItem o2) {
+                        int ret = 0;
+
+                        if (o1.getStoreDistance() < o2.getStoreDistance())
+                            ret = -1;
+                        else if (o1.getStoreDistance() == o2.getStoreDistance())
+                            ret = 0;
+                        else
+                            ret = 1;
+
+                        return ret;
+                    }
+                };
+
+                Collections.sort(StoreListAdapter.items, distanceAsc);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
 
         // 가게 정보 상세보기
         storeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
