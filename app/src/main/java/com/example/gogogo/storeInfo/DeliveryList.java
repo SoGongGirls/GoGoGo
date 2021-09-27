@@ -19,6 +19,7 @@ import androidx.fragment.app.ListFragment;
 
 import com.example.gogogo.R;
 
+import java.util.Collections;
 import java.util.Comparator;
 
 public class DeliveryList extends ListFragment {
@@ -85,6 +86,58 @@ public class DeliveryList extends ListFragment {
                 };
 
                 //Collections.sort(storeList, gradeDesc);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+        // 리스트 정렬 기능
+        Button button5 = (Button) view.findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Comparator<DeliveryItem> gradeDesc = new Comparator<DeliveryItem>() {
+                    @Override
+                    public int compare(DeliveryItem o1, DeliveryItem o2) {
+                        int ret = 0;
+
+                        if (o1.getDeliveryGrade().compareTo(o2.getDeliveryGrade()) < 0)
+                            ret = 1;
+                        else if (o1.getDeliveryGrade().compareTo(o2.getDeliveryGrade()) == 0)
+                            ret = 0;
+                        else
+                            ret = -1;
+
+                        return ret;
+                    }
+                };
+
+                Collections.sort(DeliveryListAdapter.items, gradeDesc);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        Button button6 = (Button) view.findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Comparator<DeliveryItem> distanceAsc = new Comparator<DeliveryItem>() {
+                    @Override
+                    public int compare(DeliveryItem o1, DeliveryItem o2) {
+                        int ret = 0;
+
+                        if (o1.getDeliveryTime() < o2.getDeliveryTime())
+                            ret = -1;
+                        else if (o1.getDeliveryTime() == o2.getDeliveryTime())
+                            ret = 0;
+                        else
+                            ret = 1;
+
+                        return ret;
+                    }
+                };
+
+                Collections.sort(DeliveryListAdapter.items, distanceAsc);
                 adapter.notifyDataSetChanged();
             }
         });

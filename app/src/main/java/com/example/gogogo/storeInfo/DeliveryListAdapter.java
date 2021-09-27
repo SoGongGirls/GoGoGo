@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DeliveryListAdapter extends BaseAdapter {
     Context mContext = null;
     LayoutInflater mLayoutInflater = null;
-    ArrayList<DeliveryItem> items = new ArrayList<DeliveryItem>();
+    public static ArrayList<DeliveryItem> items = new ArrayList<DeliveryItem>();
 
 
     public DeliveryListAdapter(Context context){

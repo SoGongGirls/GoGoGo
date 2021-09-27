@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class StoreListAdapter extends BaseAdapter {
     Context mContext = null;
     LayoutInflater mLayoutInflater = null;
-    ArrayList<StoreItem> items = new ArrayList<StoreItem>();
+    public static ArrayList<StoreItem> items = new ArrayList<StoreItem>();
 
 
     public StoreListAdapter(Context context){
