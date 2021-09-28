@@ -5,6 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.gogogo.R;
+import com.example.gogogo.bookmark.BookmarkQuery;
 
 import java.util.ArrayList;
 
@@ -50,6 +56,31 @@ public class RecipeAdapter extends BaseAdapter {
         view.setName(item.getName());
         view.setFoodType(item.getFoodtype());
         view.setImage(item.getImglink());
+        view.setBook(item.getRcode());
+
+        //즐겨찾기 구현
+        Button btnBookmark = (Button) view.findViewById(R.id.bookmark_icon);
+        RecipeItem finalItem = item;
+        btnBookmark.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                BookmarkQuery BQ = new BookmarkQuery(mContext);
+                boolean check = BQ.checkBookmarkData(finalItem.getRcode());
+
+                if (check == false){
+                    //즐겨찾기를 실행
+                    BQ.insertBookmarkRcode(finalItem.getRcode());
+                    Toast.makeText(mContext, finalItem.getName()+"을/를 북마크에 추가했습니다.", Toast.LENGTH_LONG).show();
+                    btnBookmark.setBackgroundResource(R.drawable.bookmark_selected);
+                }else if (check== true){
+                    //즐겨찾기 해제
+                    BQ.deleteBookmarkRcode(finalItem.getRcode());
+                    Toast.makeText(mContext, finalItem.getName()+"을/를 북마크에서 삭제했습니다.", Toast.LENGTH_LONG).show();
+                    btnBookmark.setBackgroundResource(R.drawable.bookmark_none);
+                }
+
+            }
+        });
 
         return view;
     }

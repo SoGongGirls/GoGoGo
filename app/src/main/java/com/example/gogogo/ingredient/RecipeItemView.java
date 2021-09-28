@@ -3,10 +3,12 @@ package com.example.gogogo.ingredient;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -18,7 +20,7 @@ public class RecipeItemView extends LinearLayout {
     TextView tvName;
     TextView tvfoodtype;
     ImageView imageView;
-    ImageButton imageButton;
+    Button btnBookmark;
 
     public RecipeItemView(Context context){
         super(context);
@@ -37,7 +39,7 @@ public class RecipeItemView extends LinearLayout {
         tvName = findViewById(R.id.r_name);
         tvfoodtype = findViewById(R.id.r_type);
         imageView = findViewById(R.id.r_img);
-        imageButton = findViewById(R.id.bookmark_icon);
+        btnBookmark = (Button) findViewById(R.id.bookmark_icon);
     }
 
     public void setName(String name){
@@ -55,9 +57,9 @@ public class RecipeItemView extends LinearLayout {
         BookmarkQuery BQ = new BookmarkQuery(getContext());
         boolean check = BQ.checkBookmarkData(rcode);
         if (check){
-            imageButton.setImageResource(R.drawable.bookmark_selected);
+            btnBookmark.setBackgroundResource(R.drawable.bookmark_selected);
         }else{
-            imageButton.setImageResource(R.drawable.bookmark_none);
+            btnBookmark.setBackgroundResource(R.drawable.bookmark_none);
         }
 
     }

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -98,9 +99,13 @@ public class Fragment2 extends Fragment {
                 }
                 Log.v(TAG, inputING);
 
-                Intent intent2 = new Intent(getActivity(), Recommend_recipe.class);
-                intent2.putExtra("inputING", inputING);
-                startActivity(intent2);
+                if(inputING == ""){
+                    Toast.makeText(getContext(), "재료를 1개 이상 선택하세요.", Toast.LENGTH_SHORT).show();
+                } else{
+                    Intent intent2 = new Intent(getActivity(), Recommend_recipe.class);
+                    intent2.putExtra("inputING", inputING);
+                    startActivity(intent2);
+                }
             }
         });
 

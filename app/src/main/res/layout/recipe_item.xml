@@ -44,12 +44,12 @@
 
         </LinearLayout>
 
-        <ImageButton
+        <Button
             android:id="@+id/bookmark_icon"
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/bookmark_none"/>
+            android:background="@drawable/bookmark_none"/>
 
     </LinearLayout>
 
