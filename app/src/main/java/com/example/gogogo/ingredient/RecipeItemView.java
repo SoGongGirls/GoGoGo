@@ -12,12 +12,13 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.gogogo.R;
+import com.example.gogogo.bookmark.BookmarkQuery;
 
 public class RecipeItemView extends LinearLayout {
     TextView tvName;
     TextView tvfoodtype;
     ImageView imageView;
-//    ImageButton imageButton;
+    ImageButton imageButton;
 
     public RecipeItemView(Context context){
         super(context);
@@ -36,7 +37,7 @@ public class RecipeItemView extends LinearLayout {
         tvName = findViewById(R.id.r_name);
         tvfoodtype = findViewById(R.id.r_type);
         imageView = findViewById(R.id.r_img);
-//        imageButton = findViewById(R.id.bookmark_icon);
+        imageButton = findViewById(R.id.bookmark_icon);
     }
 
     public void setName(String name){
@@ -50,15 +51,15 @@ public class RecipeItemView extends LinearLayout {
     public void setImage(String url){
         Glide.with(this).load(url).error(R.drawable.no_image).into(imageView);
     }
-//    public void setBook(int rcode){
-//        BookmarkQuery BQ = new BookmarkQuery(getContext());
-//        boolean check = BQ.checkBookmarkData(rcode);
-//        if (check){
-//            imageButton.setImageResource(R.drawable.bookmark_selected);
-//        }else{
-//            imageButton.setImageResource(R.drawable.bookmark_none);
-//        }
-//
-//    }
+    public void setBook(int rcode){
+        BookmarkQuery BQ = new BookmarkQuery(getContext());
+        boolean check = BQ.checkBookmarkData(rcode);
+        if (check){
+            imageButton.setImageResource(R.drawable.bookmark_selected);
+        }else{
+            imageButton.setImageResource(R.drawable.bookmark_none);
+        }
+
+    }
 
 }

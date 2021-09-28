@@ -68,7 +68,7 @@ public class Fragment2 extends Fragment {
         });
 
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
-                "아보카도", "2021년 9월 19일");
+                "아보카도", "2021년 09월 19일");
 
 
         //보여줄 데이터 가져오기
