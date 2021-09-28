@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Cook_Yes">
+
+    <include
+        layout="@layout/toolbar_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15sp">
+
+        <Button
+            android:id="@+id/recipe_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="전체 레시피 보러가기"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/test1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="survey"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/test2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="store"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

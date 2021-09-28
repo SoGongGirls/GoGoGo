@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.gogogo.R;
 import com.example.gogogo.ingredient.IngredientAdapter;
@@ -35,6 +36,7 @@ public class Fragment2 extends Fragment {
     TextView toolbar_title;
     ListView ingredient_list;
     ImageView ingredient_add;
+    ImageView ingredient_refresh;
     String TAG = "프래그먼트2";
     SQLiteDatabase DB;
     Button recipe_search;
@@ -51,6 +53,7 @@ public class Fragment2 extends Fragment {
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         ingredient_list = (ListView) view.findViewById(R.id.ingredient_list);
         ingredient_add = (ImageView) view.findViewById(R.id.ingredient_add);
+        ingredient_refresh = (ImageView) view.findViewById(R.id.ingredient_refresh);
         recipe_search = (Button) view.findViewById(R.id.recipe_search);
 
         toolbar_title.setText("나의 냉장고");   // 제목 설정
@@ -110,9 +113,22 @@ public class Fragment2 extends Fragment {
         });
 
 
+        ingredient_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                refresh();
+            }
+        });
+
 
         return view;
 
     }// OnCreateView
+
+
+    private void refresh() {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
+    }
 
 }

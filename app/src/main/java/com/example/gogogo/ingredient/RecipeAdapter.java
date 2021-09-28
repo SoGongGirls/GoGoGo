@@ -24,7 +24,10 @@ public class RecipeAdapter extends BaseAdapter {
         mLayoutInflater = LayoutInflater.from(mContext);
     }
 
-    public void addItem(RecipeItem item){items.add(item);}
+    public void addItem(RecipeItem item){
+        items.add(item);
+        this.notifyDataSetChanged();
+    }
 
     @Override
     public int getCount(){return items.size();}
