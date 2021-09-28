@@ -15,6 +15,18 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Store_detail_test"
+            android:exported="true" />
+        <activity
+            android:name=".Cook_Yes"
+            android:exported="true" />
+        <activity
+            android:name=".Cook_No"
+            android:exported="true" />
+        <activity
+            android:name=".Recipe_all"
+            android:exported="true" />
+        <activity
             android:name=".ingredient.Recipe"
             android:exported="true" />
         <activity
@@ -45,15 +57,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".storeInfo.StoreRecommend" />
-
-        <activity android:name=".survey.SurveyMeal"/>
-        <activity android:name=".survey.SurveyDessertGood"/>
-        <activity android:name=".survey.SurveyDessertBad"/>
-        <activity android:name=".survey.SurveyDessertDepressed"/>
-        <activity android:name=".survey.SurveyDessertAngry"/>
-        <activity android:name=".survey.SurveyDessertSad"/>
-        <activity android:name=".survey.SurveyDessert"/>
-        <activity android:name=".survey.SurveyStart"/>
+        <activity android:name=".survey.SurveyMeal" />
+        <activity android:name=".survey.SurveyDessertGood" />
+        <activity android:name=".survey.SurveyDessertBad" />
+        <activity android:name=".survey.SurveyDessertDepressed" />
+        <activity android:name=".survey.SurveyDessertAngry" />
+        <activity android:name=".survey.SurveyDessertSad" />
+        <activity android:name=".survey.SurveyDessert" />
+        <activity android:name=".survey.SurveyStart" />
     </application>
 
 </manifest>
