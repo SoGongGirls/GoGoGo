@@ -64,6 +64,7 @@
         <activity android:name=".survey.SurveyDessertAngry" />
         <activity android:name=".survey.SurveyDessertSad" />
         <activity android:name=".survey.SurveyDessert" />
+        <activity android:name=".survey.SurveyStart2" />
         <activity android:name=".survey.SurveyStart" />
     </application>
 
