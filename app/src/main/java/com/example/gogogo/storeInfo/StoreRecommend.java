@@ -35,7 +35,7 @@ public class StoreRecommend extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
-                Log.d("MainActivity", "선택된 탭 : " + position);
+                Log.d("StoreRecommend", "선택된 탭 : " + position);
 
                 Fragment selected = null;
                 if (position == 0) {

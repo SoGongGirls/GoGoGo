@@ -3,7 +3,6 @@ package com.example.gogogo.storeInfo;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,10 +12,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
+import com.example.gogogo.DatabaseHelper;
 import com.example.gogogo.R;
 
 import java.util.Collections;
@@ -133,16 +131,6 @@ public class StoreList extends ListFragment {
 
     }
 
-//    @Override
-//    public void onListItemClick (ListView l, View v, int position, long id) {
-//        StoreItem item = (StoreItem) l.getItemAtPosition(position) ;
-//
-//        String nameStr = item.getStoreName();
-//        String gradeStr = item.getStoreGrade();
-//        String distanceStr = item.getStoreDistance();
-//        String logoStr = item.getStoreLogo();
-//
-//    }
 
     public void openDB() {
         Log.v(TAG, "openDB() 실행");

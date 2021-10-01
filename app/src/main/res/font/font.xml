@@ -6,4 +6,14 @@
         android:fontWeight="400"
         android:fontStyle="normal" />
 
+    <font
+        android:font="@font/kopubworld_dotum_pro_medium"
+        android:fontWeight="400"
+        android:fontStyle="normal" />
+
+    <font
+        android:font="@font/yes24myoungjob"
+        android:fontWeight="400"
+        android:fontStyle="normal" />
+
 </font-family>

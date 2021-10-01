@@ -5,12 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gogogo.DatabaseHelper;
 import com.example.gogogo.R;
 
 public class StoreDetail extends AppCompatActivity {
@@ -26,13 +27,12 @@ public class StoreDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_detail);
 
-        View return1 = findViewById(R.id.return1);   // 뒤로가기 버튼
-
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         apdater = new StoreListAdapter(getApplicationContext());
 
         TextView storeName = (TextView)findViewById(R.id.storeName);
+        RatingBar ratingBar = (RatingBar)findViewById(R.id.ratingBar);
         TextView storeGrade = (TextView)findViewById(R.id.storeGrade);
         TextView storeMenu = (TextView)findViewById(R.id.storeMenu);
         TextView storeTel = (TextView)findViewById(R.id.storeTel);
@@ -63,6 +63,9 @@ public class StoreDetail extends AppCompatActivity {
             storeGrade.setText(cursor.getString(3));
             storeAddress.setText(cursor.getString(4));
 
+            // 평점에 따라 별 개수 표시
+            ratingBar.setRating(Float.parseFloat(cursor.getString(3)));
+
 //            // Glide로 이미지 표시하기
 //            String imageUrl = cursor.getString(9);
 //            Log.v(TAG, imageUrl);
@@ -74,12 +77,12 @@ public class StoreDetail extends AppCompatActivity {
             Log.e(TAG, "selectData() db없음.");
         }
 
-        // back 버튼 구현
-        return1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+//        // back 버튼 구현
+//        return1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                onBackPressed();
+//            }
+//        });
     }
 }

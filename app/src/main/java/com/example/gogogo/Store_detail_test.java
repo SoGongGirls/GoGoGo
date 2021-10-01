@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class Store_detail_test extends AppCompatActivity {
@@ -14,7 +13,7 @@ public class Store_detail_test extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_store_detail_test);
+        setContentView(R.layout.activity_store_detail);
 
         back = findViewById(R.id.back);
 

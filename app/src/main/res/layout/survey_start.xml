@@ -7,30 +7,35 @@
     android:orientation="vertical"
     android:gravity="center">
 
+
     <ImageView
         android:id="@+id/start"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:src="@drawable/saw"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textColor="#000000"
-        android:fontFamily="@font/onestore"
+        android:fontFamily="@font/yes24myoungjob"
         android:text="자, 설문을 시작하지.\n한 번 선택하면\n돌이킬 수 없다!"
         android:textSize="25dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/round2"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:text="설문 시작"/>
+        android:background="#F8730A"
+        android:paddingTop="7dp"
+        android:backgroundTint="#F8730A"
+        android:fontFamily="@font/kopubworld_dotum_pro_medium"
+        android:gravity="center_horizontal"
+        android:text="설문 시작"
+        android:textColor="#ffffff"
+        android:textSize="20dp" />
 
 </LinearLayout>

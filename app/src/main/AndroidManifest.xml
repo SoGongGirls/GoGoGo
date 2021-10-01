@@ -46,6 +46,7 @@
         <activity
             android:name=".ingredient.Ingredient_add"
             android:exported="true" />
+        <!-- .MainActivity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
