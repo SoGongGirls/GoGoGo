@@ -21,6 +21,7 @@ public class Cook_Yes extends AppCompatActivity {
     Button test1;
     Button test2;
     Button recipe_all;
+    Button roulette;
     ImageView back;
     TextView toolbar_title;
 
@@ -33,6 +34,7 @@ public class Cook_Yes extends AppCompatActivity {
         test1 = findViewById(R.id.test1);
         test2 = findViewById(R.id.test2);
         recipe_all = (Button) findViewById(R.id.recipe_all);
+        roulette = (Button) findViewById(R.id.roulette);
         back = (ImageView) findViewById(R.id.back);
         toolbar_title = (TextView) findViewById(R.id.toolbar_title);
 
@@ -69,6 +71,14 @@ public class Cook_Yes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        roulette.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), Roulette.class);
+                startActivity(i);
             }
         });
 

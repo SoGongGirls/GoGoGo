@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Roulette"
+            android:exported="true" />
+        <activity
             android:name=".Store_detail_test"
             android:exported="true" />
         <activity
