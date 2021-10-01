@@ -5,34 +5,6 @@
     android:layout_height="match_parent"
     android:layout_margin="5dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10sp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Input Number:"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:paddingBottom="10dp"
-            android:hint="2-6" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="confirm" />
 
     <Button
         android:id="@+id/btnRotate"
@@ -65,5 +37,17 @@
         android:layout_marginTop="15dp"
         android:text="result"
         android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/result2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:padding="15sp"
+        android:text="내 주변 매장 확인하기"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/round2" />
 
 </LinearLayout>

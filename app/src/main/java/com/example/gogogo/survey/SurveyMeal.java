@@ -1,5 +1,6 @@
 package com.example.gogogo.survey;
 
+import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gogogo.R;
+
+import java.util.ArrayList;
 
 public class SurveyMeal extends AppCompatActivity {
 
@@ -94,19 +97,8 @@ public class SurveyMeal extends AppCompatActivity {
             select4Tv.setText("");
         }
         else {
-            question.setText("Q. 돼지 VS 소 VS 닭");
-
-            // 답변 사진
-            select1.setImageResource(R.drawable.pork);
-            select2.setImageResource(R.drawable.steak);
-            select3.setImageResource(R.drawable.chicken);
-            select4.setImageResource(R.drawable.lamb);
-
-            // 답변 내용
-            select1Tv.setText("돼지고기");
-            select2Tv.setText("소고기");
-            select3Tv.setText("닭고기");
-            select4Tv.setText("다른거");
+            Intent intent = new Intent(getApplicationContext(), SurveyMealMeat.class);
+            startActivity(intent);
         }
     }
 

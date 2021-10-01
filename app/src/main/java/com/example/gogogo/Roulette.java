@@ -19,11 +19,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.gogogo.R;
+import com.example.gogogo.survey.SurveyMealMeat;
 
 import java.util.ArrayList;
 
@@ -31,16 +30,13 @@ public class Roulette extends AppCompatActivity {
     private CircleManager circleManager;
     private RelativeLayout layoutRoulette;
 
-    private InputMethodManager imm;
-    private Button btn_confirm;
     private Button btnRotate;
     private TextView result;
-    private EditText number;
+    private int number;
 
     private ArrayList<String> STRINGS;
     private float initAngle = 0.0f;
     private int num_roulette;
-
 
 
     @Override
@@ -48,24 +44,16 @@ public class Roulette extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roulette);
 
-        imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
-        number = findViewById(R.id.number);
+        number = SurveyMealMeat.MENU.size();
         result = findViewById(R.id.result);
         btnRotate = findViewById(R.id.btnRotate);
-        btn_confirm = findViewById(R.id.btn_confirm);
         layoutRoulette = findViewById(R.id.layoutRoulette);
 
 
-        btn_confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imm.hideSoftInputFromWindow(number.getWindowToken(), 0);
-                num_roulette = Integer.parseInt(number.getText().toString());
-                STRINGS = setRandom(1000, num_roulette);
-                circleManager = new CircleManager(Roulette.this, num_roulette);
-                layoutRoulette.addView(circleManager);
-            }
-        });
+        num_roulette = number;
+        STRINGS = SurveyMealMeat.MENU;
+        circleManager = new CircleManager(Roulette.this, num_roulette);
+        layoutRoulette.addView(circleManager);
 
 
         btnRotate.setOnClickListener(new View.OnClickListener() {
