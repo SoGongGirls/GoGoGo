@@ -1,5 +1,8 @@
 package com.example.gogogo.survey;
 
+import static com.example.gogogo.survey.SurveyMeal.MENU;
+
+import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -10,6 +13,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gogogo.R;
+import com.example.gogogo.Roulette;
+
+import java.util.ArrayList;
 
 public class SurveyDessertGood extends AppCompatActivity {
 
@@ -61,6 +67,31 @@ public class SurveyDessertGood extends AppCompatActivity {
             select5Tv.setText("스무디");
             select6Tv.setText("라떼");
         }
+        else if (count6 == 3) {
+            MENU = new ArrayList<>();
+            MENU.add("토스트");
+            MENU.add("샌드위치");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count6 == 2) {
+            MENU = new ArrayList<>();
+            MENU.add("마카롱");
+            MENU.add("츄러스");
+            MENU.add("도넛");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count5 == 3) {
+            MENU = new ArrayList<>();
+            MENU.add("프라푸치노");
+            MENU.add("스무디");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
         else {
             question2.setText("Q. 맛 VS 칼로리");
 
@@ -74,7 +105,7 @@ public class SurveyDessertGood extends AppCompatActivity {
 
     public void selectSix(View view) {
         count6 += 1;
-        if (count6 == 2) {
+        if (count6 == 2 && count5 != 1) {
             question2.setText("Q. 토스트 VS 스프");
 
             // 답변 사진
@@ -84,6 +115,33 @@ public class SurveyDessertGood extends AppCompatActivity {
             // 답변 내용
             select5Tv.setText("토스트");
             select6Tv.setText("스프");
+        }
+        else if (count5 == 1) {
+            MENU = new ArrayList<>();
+            MENU.add("콜드브루");
+            MENU.add("아이스아메리카노");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count6 == 3 && count5 != 2) {
+            MENU = new ArrayList<>();
+            MENU.add("크림스프");
+            MENU.add("감자스프");
+            MENU.add("옥수수스프");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count6 == 3) {
+            MENU = new ArrayList<>();
+            MENU.add("오곡라떼");
+            MENU.add("돌체라떼");
+            MENU.add("스무디");
+            MENU.add("밀크티");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
         }
         else {
             question2.setText("Q. 단 VS 짠");
