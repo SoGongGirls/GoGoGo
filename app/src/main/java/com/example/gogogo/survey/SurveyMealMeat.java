@@ -1,5 +1,7 @@
 package com.example.gogogo.survey;
 
+import static com.example.gogogo.survey.SurveyMeal.MENU;
+
 import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
@@ -31,8 +33,6 @@ public class SurveyMealMeat extends AppCompatActivity {
     TextView select2Tv;
     TextView select3Tv;
     TextView select4Tv;
-
-    public static ArrayList<String> MENU;   // 메뉴 룰렛 전달
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

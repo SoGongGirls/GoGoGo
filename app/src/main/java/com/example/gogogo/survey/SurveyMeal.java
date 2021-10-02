@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gogogo.R;
+import com.example.gogogo.Roulette;
 
 import java.util.ArrayList;
 
@@ -31,9 +32,8 @@ public class SurveyMeal extends AppCompatActivity {
     TextView select3Tv;
     TextView select4Tv;
 
-    int count1 = 0;   // 해산물 화면전환 조건
-    int count2 = 0;   // 면 화면전환 조건
-    int count3 = 0;   // 밥 화면전환 조건
+    public static ArrayList<String> MENU;   // 메뉴 룰렛 전달
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,111 +66,29 @@ public class SurveyMeal extends AppCompatActivity {
     }
 
     public void selectOne(View view) {
-        count1 += 1;
-        count3 += 1;
-        if (count1 == 2) {
-            question.setText("Q. 생선 VS 생선말고");
-
-            select1.setImageResource(R.drawable.eel);
-            select2.setImageResource(R.drawable.seafood);
-            select3.setImageResource(R.drawable.white);
-            select4.setImageResource(R.drawable.white);
-
-            select1Tv.setText("생선");
-            select2Tv.setText("생선말고");
-            select3Tv.setText("");
-            select4Tv.setText("");
-        }
-        else if (count3 == 3) {
-            question.setText("Q. 뜨끈한국물과 VS 국물말고");
-
-            // 답변 사진
-            select1.setImageResource(R.drawable.jjigae);
-            select2.setImageResource(R.drawable.rice2);
-            select3.setImageResource(R.drawable.white);
-            select4.setImageResource(R.drawable.white);
-
-            // 답변 내용
-            select1Tv.setText("뜨끈한국물과");
-            select2Tv.setText("국물말고");
-            select3Tv.setText("");
-            select4Tv.setText("");
-        }
-        else {
-            Intent intent = new Intent(getApplicationContext(), SurveyMealMeat.class);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(getApplicationContext(), SurveyMealMeat.class);
+        startActivity(intent);
     }
 
     public void selectTwo(View view) {
-        count1 += 1;
-        count2 += 1;
-        if (count2 == 2) {
-            question.setText("Q. 국물 VS 안국물");
-
-            // 답변 사진
-            select1.setImageResource(R.drawable.ramen);
-            select2.setImageResource(R.drawable.jajangmyeon);
-            select3.setImageResource(R.drawable.white);
-            select4.setImageResource(R.drawable.white);
-
-            // 답변 내용
-            select1Tv.setText("국물");
-            select2Tv.setText("안국물");
-            select3Tv.setText("");
-            select4Tv.setText("");
-        }
-        else {
-            question.setText("Q. 익힌 VS 안익힌");
-
-            // 답변 사진
-            select1.setImageResource(R.drawable.eel);
-            select2.setImageResource(R.drawable.fish);
-            select3.setImageResource(R.drawable.white);
-            select4.setImageResource(R.drawable.white);
-
-            // 답변 내용
-            select1Tv.setText("익힌");
-            select2Tv.setText("안익힌");
-            select3Tv.setText("");
-            select4Tv.setText("");
-        }
+        Intent intent = new Intent(getApplicationContext(), SurveyMealFish.class);
+        startActivity(intent);
     }
 
     public void selectThree(View view) {
-        count3 += 1;
-        if (count3 == 2) {
-            question.setText("Q. 밥 VS 죽");
+        MENU = new ArrayList<>();
+        MENU.add("훠궈");
+        MENU.add("쌀국수");
+        MENU.add("타코");
+        MENU.add("마라탕");
+        MENU.add("꿔바로우");
 
-            // 답변 사진
-            select1.setImageResource(R.drawable.rice1);
-            select2.setImageResource(R.drawable.juk);
-            select3.setImageResource(R.drawable.white);
-            select4.setImageResource(R.drawable.white);
-
-            // 답변 내용
-            select1Tv.setText("밥");
-            select2Tv.setText("죽");
-            select3Tv.setText("");
-            select4Tv.setText("");
-        }
+        Intent intent = new Intent(getApplicationContext(), Roulette.class);
+        startActivity(intent);
     }
 
     public void selectFour(View view) {
-        count2 += 1;
-        count3 += 1;
-        question.setText("Q. 빵 VS 면 VS 밥 VS 떡·만두");
-
-        // 답변 사진
-        select1.setImageResource(R.drawable.hamburger);
-        select2.setImageResource(R.drawable.ramen);
-        select3.setImageResource(R.drawable.rice1);
-        select4.setImageResource(R.drawable.tteokbokki);
-
-        // 답변 내용
-        select1Tv.setText("빵");
-        select2Tv.setText("면");
-        select3Tv.setText("밥");
-        select4Tv.setText("떡 or 만두");
+        Intent intent = new Intent(getApplicationContext(), SurveyMealElse.class);
+        startActivity(intent);
     }
 }

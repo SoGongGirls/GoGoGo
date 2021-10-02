@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.gogogo.survey.SurveyMeal;
 import com.example.gogogo.survey.SurveyMealMeat;
 
 import java.util.ArrayList;
@@ -44,14 +45,14 @@ public class Roulette extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roulette);
 
-        number = SurveyMealMeat.MENU.size();
+        number = SurveyMeal.MENU.size();
         result = findViewById(R.id.result);
         btnRotate = findViewById(R.id.btnRotate);
         layoutRoulette = findViewById(R.id.layoutRoulette);
 
 
         num_roulette = number;
-        STRINGS = SurveyMealMeat.MENU;
+        STRINGS = SurveyMeal.MENU;
         circleManager = new CircleManager(Roulette.this, num_roulette);
         layoutRoulette.addView(circleManager);
 
