@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.LocationManager;
@@ -28,6 +29,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Shape;
+import nl.dionsegijn.konfetti.models.Size;
+
 public class SurveyResult extends AppCompatActivity {
     // 내 위치 확인
     private GpsTracker gpsTracker;
@@ -44,7 +49,26 @@ public class SurveyResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.survey_result);
 
+        final KonfettiView konfettiView = findViewById(R.id.viewKonfetti);
         Button button = (Button) findViewById(R.id.result);
+
+
+        konfettiView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                konfettiView.build()
+                        .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+                        .setDirection(0.0, 359.0)
+                        .setSpeed(1f, 3f)
+                        .setFadeOutEnabled(true)
+                        .setTimeToLive(1500L)
+                        .addShapes(Shape.RECT, Shape.CIRCLE)
+                        .addSizes(new Size(11, 5))
+                        .setPosition(-50f, konfettiView.getWidth() + 50f, -50f, -50f)
+                        .streamFor(250, 5000L);
+            }
+        });
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,4 +215,7 @@ public class SurveyResult extends AppCompatActivity {
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
                 || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
     }
+
+
+
 }

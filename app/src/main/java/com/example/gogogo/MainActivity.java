@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,8 +23,9 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
+    NavigationView navigationView;
     BottomNavigationView bottomNavigationView;
-    DrawerLayout drawerLayout;
+    DrawerLayout drawer_layout;
     View drawer;
     View my_page;
 
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /* 객체 초기화 */
+        navigationView = findViewById(R.id.drawer);
         bottomNavigationView = findViewById(R.id.bottom);
+        drawer_layout = findViewById(R.id.drawer_layout);
         my_page = findViewById(R.id.my_page);
 
         fragment1 = new Fragment1();
@@ -55,13 +59,29 @@ public class MainActivity extends AppCompatActivity {
         my_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                drawerLayout.openDrawer(drawer);
+                drawer_layout.openDrawer(drawer);
             }
         });
 
 
         /* 초기화면 설정 - fragment1으로 고정 */
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()) {
+                    case R.id.nav_note:
+                        Intent i_bookmark = new Intent(MainActivity.this, my_note.class);
+                        startActivity(i_bookmark);
+                        break;
+                }
+                drawer_layout.closeDrawer(navigationView);
+                return false;
+            }
+
+        });
+
 
         /* fragment 설정 */
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -86,5 +106,6 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 });
+
     }
 }

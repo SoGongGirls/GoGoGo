@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ListNote"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="10sp">
+
+    <TextView
+        android:id="@+id/txtcontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:singleLine="true"
+        android:text="메모 내용을 출력합니다."
+        android:textColor="#000"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/txtwdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2019/11/12 08:54:02"
+        android:textColor="@color/gray"
+        android:textSize="15sp"
+        android:padding="10sp"
+        android:layout_below="@id/txtcontent" />
+
+    <ImageView
+        android:id="@+id/btndel"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_baseline_close_24"
+        android:backgroundTint="@color/orange1" />
+
+</RelativeLayout>
