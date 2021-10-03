@@ -1,10 +1,12 @@
 package com.example.gogogo.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.gogogo.R;
 import com.example.gogogo.community.PagerAdapter;
+import com.example.gogogo.login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class Fragment3 extends Fragment {
@@ -21,6 +24,7 @@ public class Fragment3 extends Fragment {
     TextView toolbar_title;
     ViewPager viewPager;
     TabLayout tabLayout;
+    Button go_login;
 
     @Nullable
     @Override
@@ -33,6 +37,14 @@ public class Fragment3 extends Fragment {
         toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        go_login = (Button) view.findViewById(R.id.go_login);
+
+        go_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
 
         toolbar_title.setText("커뮤니티");  // 제목 설정
 
