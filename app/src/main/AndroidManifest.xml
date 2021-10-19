@@ -88,6 +88,7 @@
         <activity android:name=".Roulette" />
         <activity android:name=".survey.SurveyMealFish" />
         <activity android:name=".survey.SurveyMealElse" />
+        <activity android:name=".survey.SurveyDessertDepressed2"/>
     </application>
 
 </manifest>

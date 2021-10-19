@@ -1,5 +1,8 @@
 package com.example.gogogo.survey;
 
+import static com.example.gogogo.survey.SurveyMeal.MENU;
+
+import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -10,6 +13,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gogogo.R;
+import com.example.gogogo.Roulette;
+
+import java.util.ArrayList;
 
 public class SurveyDessertDepressed extends AppCompatActivity {
 
@@ -50,9 +56,16 @@ public class SurveyDessertDepressed extends AppCompatActivity {
 
     public void selectTwelve(View view) {
         count12 += 1;
-        count13 += 1;
 
-        if (count12 == 2) {
+        if (count12 == 2 && count13 == 1) {
+            MENU = new ArrayList<>();
+            MENU.add("벨기에와플");
+            MENU.add("아메리칸와플");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count12 == 2) {
             question4.setText("Q. 아이스크림 VS 빙수");
 
             // 답변 사진
@@ -62,6 +75,16 @@ public class SurveyDessertDepressed extends AppCompatActivity {
             // 답변 내용
             select12Tv.setText("아이스크림");
             select13Tv.setText("빙수");
+        }
+        else if (count12 == 3) {
+            MENU = new ArrayList<>();
+            MENU.add("아이스크림");
+            MENU.add("크로플");
+            MENU.add("밀크쉐이크");
+            MENU.add("젤라또");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
         }
         else {
             question4.setText("Q. 맛 VS 칼로리");
@@ -77,16 +100,29 @@ public class SurveyDessertDepressed extends AppCompatActivity {
     public void selectThirteen(View view) {
         count13 += 1;
 
-        if (count13 == 2) {
-            question4.setText("Q. 요거트 VS 주스");
+        if (count12 == 1 && count13 == 1) {
+            Intent intent = new Intent(getApplicationContext(), SurveyDessertDepressed2.class);
+            startActivity(intent);
+        }
+        else if (count13 == 2) {
+            MENU = new ArrayList<>();
+            MENU.add("마카롱");
+            MENU.add("츄러스");
+            MENU.add("도넛");
 
-            // 답변 사진
-            select12.setImageResource(R.drawable.yogurt);
-            select13.setImageResource(R.drawable.juice);
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count12 == 2 && count13 == 1) {
+            MENU = new ArrayList<>();
+            MENU.add("딸기빙수");
+            MENU.add("인절미빙수");
+            MENU.add("팥빙수");
+            MENU.add("요거트빙수");
+            MENU.add("망고빙수");
 
-            // 답변 내용
-            select12Tv.setText("요거트");
-            select13Tv.setText("주스");
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
         }
         else {
             question4.setText("Q. 맛 VS 칼로리");
