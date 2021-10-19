@@ -15,6 +15,24 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".community.PostingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login.SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".memo.UpdateActivity"
+            android:exported="true" />
+        <activity
+            android:name=".memo.InsertActivity"
+            android:exported="true" />
+        <activity
+            android:name=".my_note"
+            android:exported="true" />
+        <activity
             android:name=".Store_detail_test"
             android:exported="true" />
         <activity
@@ -45,8 +63,7 @@
         <!-- android:exported="true" /> -->
         <activity
             android:name=".ingredient.Ingredient_add"
-            android:exported="true" />
-        <!-- .MainActivity -->
+            android:exported="true" /> <!-- .MainActivity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -67,10 +84,10 @@
         <activity android:name=".survey.SurveyDessert" />
         <activity android:name=".survey.SurveyStart2" />
         <activity android:name=".survey.SurveyStart" />
-        <activity android:name=".survey.SurveyMealMeat"/>
-        <activity android:name=".Roulette"/>
-        <activity android:name=".survey.SurveyMealFish"/>
-        <activity android:name=".survey.SurveyMealElse"/>
+        <activity android:name=".survey.SurveyMealMeat" />
+        <activity android:name=".Roulette" />
+        <activity android:name=".survey.SurveyMealFish" />
+        <activity android:name=".survey.SurveyMealElse" />
     </application>
 
 </manifest>

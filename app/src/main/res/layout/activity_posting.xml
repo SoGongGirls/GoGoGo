@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".community.PostingActivity">
+    <TextView
+        android:id="@+id/title_posting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        tools:text="타이틀"/>
+    <TextView
+        android:id="@+id/nickname_posting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="작성자"/>
+    <TextView
+        android:id="@+id/date_posting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="작성시간"/>
+    <TextView
+        android:id="@+id/contents_posting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        tools:text="본문입니다.^^"/>
+
+
+</LinearLayout>

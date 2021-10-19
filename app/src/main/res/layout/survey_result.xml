@@ -1,69 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20sp"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-
-    <ImageView
-        android:id="@+id/imageView2"
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        android:layout_height="match_parent"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:textAlignment="center"
-        android:text="추천 결과!"
-        android:textColor="@color/orange3"
-        android:fontFamily="@font/onestore"
-        android:textSize="35sp" />
+        android:layout_height="match_parent"
+        android:layout_margin="20sp"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:textAlignment="center"
-        android:text="추천 결과값"
-        android:textColor="@color/black"
-        android:fontFamily="@font/onestore"
-        android:textSize="25sp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
-    <Button
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="20sp"
-        android:padding="15sp"
-        android:text="내 주변 매장 확인하기"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:background="@drawable/round2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:textAlignment="center"
+            android:text="추천 결과!"
+            android:textColor="@color/orange3"
+            android:fontFamily="@font/onestore"
+            android:textSize="35sp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:padding="15sp"
-        android:background="@drawable/round3"
-        android:text="내 위치 확인하기"
-        android:textSize="18sp"
-        android:textColor="@color/orange3" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:textAlignment="center"
+            android:text="추천 결과값"
+            android:textColor="@color/black"
+            android:fontFamily="@font/onestore"
+            android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:text="내 위치값"
-        android:textSize="15dp"/>
+        <Button
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20sp"
+            android:padding="15sp"
+            android:text="내 주변 매장 확인하기"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@drawable/round2" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:padding="15sp"
+            android:background="@drawable/round3"
+            android:text="내 위치 확인하기"
+            android:textSize="18sp"
+            android:textColor="@color/orange3" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:text="내 위치값"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
