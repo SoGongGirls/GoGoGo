@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
 import com.example.gogogo.DatabaseHelper;
@@ -20,7 +21,7 @@ import com.example.gogogo.R;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class DeliveryList extends ListFragment {
+public class DeliveryList extends Fragment {
     SQLiteDatabase database;
     ListView deliveryList;
     DeliveryListAdapter adapter;
@@ -63,35 +64,8 @@ public class DeliveryList extends ListFragment {
 
 
         // 리스트 정렬 기능
-        Button button4 = (Button) view.findViewById(R.id.button4);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Comparator<StoreItem> gradeDesc = new Comparator<StoreItem>() {
-                    @Override
-                    public int compare(StoreItem o1, StoreItem o2) {
-                        int ret = 0;
-
-                        if (o1.getStoreGrade().compareTo(o2.getStoreGrade()) < 0)
-                            ret = 1;
-                        else if (o1.getStoreGrade().compareTo(o2.getStoreGrade()) == 0)
-                            ret = 0;
-                        else
-                            ret = -1;
-
-                        return ret;
-                    }
-                };
-
-                //Collections.sort(storeList, gradeDesc);
-                adapter.notifyDataSetChanged();
-            }
-        });
-
-
-        // 리스트 정렬 기능
-        Button button5 = (Button) view.findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener() {
+        Button button3 = (Button) view.findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Comparator<DeliveryItem> gradeDesc = new Comparator<DeliveryItem>() {
@@ -115,8 +89,8 @@ public class DeliveryList extends ListFragment {
             }
         });
 
-        Button button6 = (Button) view.findViewById(R.id.button6);
-        button6.setOnClickListener(new View.OnClickListener() {
+        Button button4 = (Button) view.findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Comparator<DeliveryItem> distanceAsc = new Comparator<DeliveryItem>() {
@@ -145,9 +119,9 @@ public class DeliveryList extends ListFragment {
         deliveryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), StoreDetail.class);
-                StoreItem item = (StoreItem) adapter.getItem(i);
-                String id = String.valueOf(item.getStoreId());
+                Intent intent = new Intent(getActivity(), DeliveryDetail.class);
+                DeliveryItem item = (DeliveryItem) adapter.getItem(i);
+                String id = String.valueOf(item.getDeliveryId());
                 Log.v(TAG, "id는" + id);
                 intent.putExtra("id", id);
                 startActivity(intent);

@@ -1,31 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/storeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="추천순" />
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/kopubworld_dotum_pro_medium"
+            android:text="기본순"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="거리순" />
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/kopubworld_dotum_pro_medium"
+            android:text="추천순"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/kopubworld_dotum_pro_medium"
+            android:text="거리순"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+    </ListView>
 
 </LinearLayout>
