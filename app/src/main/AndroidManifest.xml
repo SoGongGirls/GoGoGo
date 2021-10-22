@@ -33,6 +33,9 @@
             android:name=".my_note"
             android:exported="true" />
         <activity
+            android:name=".my_location"
+            android:exported="true" />
+        <activity
             android:name=".Cook_Yes"
             android:exported="true" />
         <activity
@@ -65,7 +68,7 @@
             android:name=".ingredient.Ingredient_add"
             android:exported="true" /> <!-- .MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".storeInfo.SurveyResult"
             android:exported="true">
 <!--            android:windowSoftInputMode="adjustPan">-->
             <intent-filter>

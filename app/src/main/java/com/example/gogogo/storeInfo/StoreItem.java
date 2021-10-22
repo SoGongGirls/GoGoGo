@@ -4,6 +4,7 @@ package com.example.gogogo.storeInfo;
 import android.util.Log;
 
 import com.example.gogogo.MainActivity;
+import com.example.gogogo.my_location;
 
 public class StoreItem {
     private int storeId;
@@ -34,6 +35,7 @@ public class StoreItem {
     public int getStoreId() { return this.storeId; }
 
     public double getStoreDistance() {
+        // return DistanceByDegree(my_location.myLatitude, my_location.myLongitude, storeLatitude, storeLongitude);
         return DistanceByDegree(SurveyResult.myLatitude, SurveyResult.myLongitude, storeLatitude, storeLongitude);
     }
 
