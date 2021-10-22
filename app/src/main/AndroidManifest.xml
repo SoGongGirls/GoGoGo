@@ -33,9 +33,6 @@
             android:name=".my_note"
             android:exported="true" />
         <activity
-            android:name=".Store_detail_test"
-            android:exported="true" />
-        <activity
             android:name=".Cook_Yes"
             android:exported="true" />
         <activity
@@ -66,8 +63,8 @@
             android:exported="true" /> <!-- .MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan">
+            android:exported="true">
+<!--            android:windowSoftInputMode="adjustPan">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
 import com.example.gogogo.DatabaseHelper;
@@ -20,11 +21,12 @@ import com.example.gogogo.R;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class StoreList extends ListFragment {
+public class StoreList extends Fragment {
     SQLiteDatabase database;
     ListView storeList;
     StoreListAdapter adapter;
-    public static final String TAG ="TAG StoreList.java" ;
+    public static final String TAG ="TAG StoreList.java";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -131,11 +133,28 @@ public class StoreList extends ListFragment {
 
     }
 
+//    @Override
+//    public void onListItemClick (ListView l, View v, int position, long id) {
+//        StoreItem item = (StoreItem) l.getItemAtPosition(position) ;
+//
+//        String nameStr = item.getStoreName();
+//        String gradeStr = item.getStoreGrade();
+////        double distanceStr = item.getStoreDistance();
+//        String logoStr = item.getStoreLogo();
+//
+//    }
+
+//    public void addItem(Drawable image, String name, String grade, String distance) {
+//        adapter.addItem(image, name, grade, distance);
+//    }
 
     public void openDB() {
         Log.v(TAG, "openDB() 실행");
         DatabaseHelper helper = new DatabaseHelper(getContext());
         database = helper.getWritableDatabase();
+
+
+        //Log.v(Double.toString(myLatitude), "위도");
 
         if (database != null) {
             Log.v(TAG, "DB 열기 성공!");

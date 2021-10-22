@@ -49,13 +49,13 @@ public class Cook_Yes extends AppCompatActivity {
         });
 
 
-        test2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(view.getContext(), Store_detail_test.class);
-                startActivity(intent2);
-            }
-        });
+//        test2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent2 = new Intent(view.getContext(), Store_detail_test.class);
+//                startActivity(intent2);
+//            }
+//        });
 
 
         recipe_all.setOnClickListener(new View.OnClickListener() {
