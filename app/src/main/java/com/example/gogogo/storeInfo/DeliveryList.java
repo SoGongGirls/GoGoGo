@@ -64,10 +64,18 @@ public class DeliveryList extends Fragment {
 
 
         // 리스트 정렬 기능
-        Button button3 = (Button) view.findViewById(R.id.button3);
+        Button button3 = (Button) view.findViewById(R.id.button3);   // 추천순
+        Button button4 = (Button) view.findViewById(R.id.button4);   // 거리순
+        Button button5 = (Button) view.findViewById(R.id.button5);   // 기본순
+
+        button5.setSelected(true);   // 기본순 버튼 눌린 상태로 유지
+
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button5.setSelected(false);
+                button4.setSelected(false);
+                button3.setSelected(true);
                 Comparator<DeliveryItem> gradeDesc = new Comparator<DeliveryItem>() {
                     @Override
                     public int compare(DeliveryItem o1, DeliveryItem o2) {
@@ -89,10 +97,12 @@ public class DeliveryList extends Fragment {
             }
         });
 
-        Button button4 = (Button) view.findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button5.setSelected(false);
+                button4.setSelected(true);
+                button3.setSelected(false);
                 Comparator<DeliveryItem> distanceAsc = new Comparator<DeliveryItem>() {
                     @Override
                     public int compare(DeliveryItem o1, DeliveryItem o2) {
