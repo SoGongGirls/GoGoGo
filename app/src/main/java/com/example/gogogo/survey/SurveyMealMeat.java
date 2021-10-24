@@ -92,7 +92,7 @@ public class SurveyMealMeat extends AppCompatActivity {
 
     public void selectThree(View view) {
         MENU = new ArrayList<>();
-        MENU.add("백숙");
+        MENU.add("닭백숙");
         MENU.add("치킨");
         MENU.add("닭도리탕");
         MENU.add("찜닭");

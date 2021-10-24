@@ -17,7 +17,10 @@ import androidx.fragment.app.ListFragment;
 
 import com.example.gogogo.DatabaseHelper;
 import com.example.gogogo.R;
+import com.example.gogogo.Roulette;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -26,6 +29,8 @@ public class DeliveryList extends Fragment {
     ListView deliveryList;
     DeliveryListAdapter adapter;
     public static final String TAG ="TAG DeliveryList.java";
+
+    String[] menuList = new String[5];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +46,7 @@ public class DeliveryList extends Fragment {
         //맨처음 초기화 데이터 보여주기(select)
         if (database != null) {
             String tableName = "delivery_data";
-            String query = "select name, degree, id, logo, latitude, longitude from "+tableName;
+            String query = "select name, degree, id, logo, latitude, longitude, menu from "+tableName;
             Cursor cursor = database.rawQuery(query, null);
             Log.v(TAG, "조회된 데이터 수 : " + cursor.getCount());
 
@@ -54,7 +59,34 @@ public class DeliveryList extends Fragment {
                 double latitude = cursor.getDouble(4);
                 double longitude = cursor.getDouble(5);
 
-                adapter.addItem(new DeliveryItem(name, degree, id, logo, latitude, longitude));
+
+                String menu = cursor.getString(6);
+
+                menuList = menu.split(",");
+                ArrayList<String> menuList2 = new ArrayList<>(Arrays.asList(menuList));
+
+                // 검색결과 변환
+                if (Arrays.asList(menuList).contains("분식")) {
+                    menuList2.remove("분식");
+                    menuList2.add("김밥");
+                    menuList2.add("떡볶이");
+                    menuList2.add("쫄면");
+                    menuList2.add("만두");
+                    menuList2.add("볶음밥");
+                }
+                if (Arrays.asList(menuList).contains("중식")) {
+                    menuList2.remove("중식");
+                    menuList2.add("짜장면");
+                    menuList2.add("짬뽕");
+                    menuList2.add("탕수육");
+                    menuList2.add("볶음밥");
+                }
+
+
+                // 룰렛 결과에 해당하는 데이터만 보여주기
+                if (menuList2.contains(Roulette.result3)) {
+                    adapter.addItem(new DeliveryItem(name, degree, id, logo, latitude, longitude));
+                }
             }
             cursor.close();
         } else {

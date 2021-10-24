@@ -41,6 +41,7 @@ public class Roulette extends AppCompatActivity {
     private ArrayList<String> STRINGS;
     private float initAngle = 0.0f;
     private int num_roulette;
+    public static String result3;
 
 
     @Override
@@ -72,7 +73,7 @@ public class Roulette extends AppCompatActivity {
         result2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String result3 = result.getText().toString();
+                result3 = result.getText().toString();
                 if (result3.equals("result")) {
                     Toast.makeText(getApplicationContext(), "룰렛을 먼저 돌려주세요", Toast.LENGTH_SHORT).show();
                 }

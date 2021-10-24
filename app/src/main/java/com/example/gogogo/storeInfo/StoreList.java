@@ -17,15 +17,21 @@ import androidx.fragment.app.ListFragment;
 
 import com.example.gogogo.DatabaseHelper;
 import com.example.gogogo.R;
+import com.example.gogogo.Roulette;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class StoreList extends Fragment {
     SQLiteDatabase database;
     ListView storeList;
     StoreListAdapter adapter;
     public static final String TAG ="TAG StoreList.java";
+
+    String[] menuList = new String[5];
 
 
     @Override
@@ -39,10 +45,10 @@ public class StoreList extends Fragment {
         // 리스트뷰 참조 및 Adapter 연결
         adapter = new StoreListAdapter(getActivity());
 
-        //맨처음 초기화 데이터 보여주기(select)
+        // 맨 처음 초기화 데이터 보여주기 (select)
         if (database != null) {
             String tableName = "store_data";
-            String query = "select name, degree, id, logo, latitude, longitude from "+tableName;
+            String query = "select name, degree, id, logo, latitude, longitude, menu from "+tableName;
             Cursor cursor = database.rawQuery(query, null);
             Log.v(TAG, "조회된 데이터 수 : " + cursor.getCount());
 
@@ -54,8 +60,222 @@ public class StoreList extends Fragment {
                 String logo = cursor.getString(3);
                 double latitude = cursor.getDouble(4);
                 double longitude = cursor.getDouble(5);
+                String menu = cursor.getString(6);
 
-                adapter.addItem(new StoreItem(name, degree, id, logo, latitude, longitude));
+                menuList = menu.split(",");
+                ArrayList<String> menuList2 = new ArrayList<>(Arrays.asList(menuList));
+
+                // 검색결과 변환
+                if (Arrays.asList(menuList).contains("갈비찜")) {
+                    menuList2.remove("갈비찜");
+                    menuList2.add("갈비");
+                }
+                if (Arrays.asList(menuList).contains("갈비탕")) {
+                    menuList2.remove("갈비탕");
+                    menuList2.add("갈비");
+                }
+                if (Arrays.asList(menuList).contains("곰탕")) {
+                    menuList2.remove("곰탕");
+                    menuList2.add("국밥");
+                }
+                if (Arrays.asList(menuList).contains("김치전골")) {
+                    menuList2.remove("김치전골");
+                    menuList2.add("김치찌개");
+                }
+                if (Arrays.asList(menuList).contains("꼼장어")) {
+                    menuList2.remove("꼼장어");
+                    menuList2.add("장어");
+                }
+                if (Arrays.asList(menuList).contains("꽃게탕")) {
+                    menuList2.remove("꽃게탕");
+                    menuList2.add("해물탕");
+                }
+                if (Arrays.asList(menuList).contains("꼬치")) {
+                    menuList2.remove("꼬치");
+                    menuList2.add("튀김");
+                }
+                if (Arrays.asList(menuList).contains("낙지볶음")) {
+                    menuList2.remove("낙지볶음");
+                    menuList2.add("쭈꾸미/낙지");
+                }
+                if (Arrays.asList(menuList).contains("냉면")) {
+                    menuList2.remove("냉면");
+                    menuList2.add("물냉면");
+                    menuList2.add("비빔냉면");
+                }
+                if (Arrays.asList(menuList).contains("돼지갈비")) {
+                    menuList2.remove("돼지갈비");
+                    menuList2.add("삼겹살");
+                }
+                if (Arrays.asList(menuList).contains("딱새우회")) {
+                    menuList2.remove("딱새우회");
+                    menuList2.add("회/물회");
+                }
+                if (Arrays.asList(menuList).contains("떡갈비")) {
+                    menuList2.remove("떡갈비");
+                    menuList2.add("갈비");
+                }
+                if (Arrays.asList(menuList).contains("메기탕")) {
+                    menuList2.remove("메기탕");
+                    menuList2.add("매운탕");
+                }
+                if (Arrays.asList(menuList).contains("물회")) {
+                    menuList2.remove("물회");
+                    menuList2.add("회/물회");
+                }
+                if (Arrays.asList(menuList).contains("밥버거")) {
+                    menuList2.remove("밥버거");
+                    menuList2.add("컵밥/밥버거");
+                }
+                if (Arrays.asList(menuList).contains("복어")) {
+                    menuList2.remove("복어");
+                    menuList2.add("장어/복어");
+                }
+                if (Arrays.asList(menuList).contains("분식")) {
+                    menuList2.remove("분식");
+                    menuList2.add("김밥");
+                    menuList2.add("떡볶이");
+                    menuList2.add("쫄면");
+                    menuList2.add("만두");
+                    menuList2.add("볶음밥");
+                }
+                if (Arrays.asList(menuList).contains("비빔국수")) {
+                    menuList2.remove("비빔국수");
+                    menuList2.add("국수");
+                }
+                if (Arrays.asList(menuList).contains("삼계탕")) {
+                    menuList2.remove("삼계탕");
+                    menuList2.add("닭백숙");
+                }
+                if (Arrays.asList(menuList).contains("설렁탕")) {
+                    menuList2.remove("설렁탕");
+                    menuList2.add("국밥");
+                }
+                if (Arrays.asList(menuList).contains("소고기")) {
+                    menuList2.remove("소고기");
+                    menuList2.add("소고기구이");
+                }
+                if (Arrays.asList(menuList).contains("수육")) {
+                    menuList2.remove("수육");
+                    menuList2.add("보쌈");
+                }
+                if (Arrays.asList(menuList).contains("순두부찌개")) {
+                    menuList2.remove("순두부찌개");
+                    menuList2.add("육개장/순두부찌개");
+                }
+                if (Arrays.asList(menuList).contains("생고기")) {
+                    menuList2.remove("생고기");
+                    menuList2.add("육회");
+                }
+                if (Arrays.asList(menuList).contains("생선조림")) {
+                    menuList2.remove("생선조림");
+                    menuList2.add("생선찜");
+                }
+                if (Arrays.asList(menuList).contains("아구찜")) {
+                    menuList2.remove("아구찜");
+                    menuList2.add("생선찜");
+                }
+                if (Arrays.asList(menuList).contains("양갈비")) {
+                    menuList2.remove("양갈비");
+                    menuList2.add("양고기");
+                }
+                if (Arrays.asList(menuList).contains("연포탕")) {
+                    menuList2.remove("연포탕");
+                    menuList2.add("해물탕");
+                }
+                if (Arrays.asList(menuList).contains("어묵탕")) {
+                    menuList2.remove("어묵탕");
+                    menuList2.add("어묵");
+                }
+                if (Arrays.asList(menuList).contains("오리")) {
+                    menuList2.remove("오리");
+                    menuList2.add("오리구이");
+                    menuList2.add("오리탕");
+                    menuList2.add("오리주물럭");
+                }
+                if (Arrays.asList(menuList).contains("오리로스")) {
+                    menuList2.remove("오리로스");
+                    menuList2.add("오리구이");
+                }
+                if (Arrays.asList(menuList).contains("오리전골")) {
+                    menuList2.remove("오리전골");
+                    menuList2.add("오리주물럭");
+                }
+                if (Arrays.asList(menuList).contains("오리훈제")) {
+                    menuList2.remove("오리훈제");
+                    menuList2.add("오리구이");
+                }
+                if (Arrays.asList(menuList).contains("장어")) {
+                    menuList2.remove("장어");
+                    menuList2.add("장어/복어");
+                }
+                if (Arrays.asList(menuList).contains("장어구이")) {
+                    menuList2.remove("장어구이");
+                    menuList2.add("장어/복어");
+                }
+                if (Arrays.asList(menuList).contains("전복구이")) {
+                    menuList2.remove("전복구이");
+                    menuList2.add("조개구이");
+                }
+                if (Arrays.asList(menuList).contains("제육볶음")) {
+                    menuList2.remove("제육볶음");
+                    menuList2.add("백반");
+                }
+                if (Arrays.asList(menuList).contains("조개전골")) {
+                    menuList2.remove("조개전골");
+                    menuList2.add("해물탕");
+                }
+                if (Arrays.asList(menuList).contains("조개탕")) {
+                    menuList2.remove("조개탕");
+                    menuList2.add("해물탕");
+                }
+                if (Arrays.asList(menuList).contains("죽")) {
+                    menuList2.remove("죽");
+                    menuList2.add("호박죽");
+                    menuList2.add("전복죽");
+                    menuList2.add("팥죽");
+                }
+                if (Arrays.asList(menuList).contains("중식")) {
+                    menuList2.remove("중식");
+                    menuList2.add("짜장면");
+                    menuList2.add("짬뽕");
+                    menuList2.add("탕수육");
+                    menuList2.add("볶음밥");
+                }
+                if (Arrays.asList(menuList).contains("쭈꾸미")) {
+                    menuList2.remove("쭈꾸미");
+                    menuList2.add("쭈꾸미/낙지");
+                }
+                if (Arrays.asList(menuList).contains("청국장")) {
+                    menuList2.remove("청국장");
+                    menuList2.add("된장찌개");
+                }
+                if (Arrays.asList(menuList).contains("칼국수")) {
+                    menuList2.remove("칼국수");
+                    menuList2.add("국수");
+                }
+                if (Arrays.asList(menuList).contains("컵밥")) {
+                    menuList2.remove("컵밥");
+                    menuList2.add("컵밥/밥버거");
+                }
+                if (Arrays.asList(menuList).contains("콩물국수")) {
+                    menuList2.remove("콩물국수");
+                    menuList2.add("국수");
+                }
+                if (Arrays.asList(menuList).contains("해장국")) {
+                    menuList2.remove("해장국");
+                    menuList2.add("국밥");
+                }
+                if (Arrays.asList(menuList).contains("회")) {
+                    menuList2.remove("회");
+                    menuList2.add("회/물회");
+                }
+
+
+                // 룰렛 결과에 해당하는 데이터만 보여주기
+                if (menuList2.contains(Roulette.result3)) {
+                    adapter.addItem(new StoreItem(name, degree, id, logo, latitude, longitude));
+                }
             }
             cursor.close();
         } else {
