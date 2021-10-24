@@ -84,7 +84,7 @@ public class SurveyMealMeat extends AppCompatActivity {
         MENU.add("샤브샤브");
         MENU.add("곱창");
         MENU.add("소고기구이");
-        MENU.add("갈비탕");
+        MENU.add("갈비");
 
         Intent intent = new Intent(getApplicationContext(), Roulette.class);
         startActivity(intent);
@@ -97,6 +97,7 @@ public class SurveyMealMeat extends AppCompatActivity {
         MENU.add("닭도리탕");
         MENU.add("찜닭");
         MENU.add("닭발");
+        MENU.add("닭갈비");
 
         Intent intent = new Intent(getApplicationContext(), Roulette.class);
         startActivity(intent);
@@ -105,8 +106,9 @@ public class SurveyMealMeat extends AppCompatActivity {
     public void selectFour(View view) {
         MENU = new ArrayList<>();
         MENU.add("오리탕");
-        MENU.add("염소");
-        MENU.add("양꼬치");
+        MENU.add("염소고기");
+        MENU.add("양고기");
+        MENU.add("오돌뼈");
         MENU.add("오리구이");
         MENU.add("오리주물럭");
 

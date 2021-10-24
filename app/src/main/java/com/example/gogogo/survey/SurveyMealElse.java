@@ -77,7 +77,7 @@ public class SurveyMealElse extends AppCompatActivity {
             MENU.add("우동");
             MENU.add("라멘");
             MENU.add("물냉면");
-            MENU.add("칼국수");
+            MENU.add("국수");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
@@ -102,9 +102,9 @@ public class SurveyMealElse extends AppCompatActivity {
             MENU.add("부대찌개");
             MENU.add("김치찌개");
             MENU.add("국밥");
-            MENU.add("육개장");
+            MENU.add("육개장/순두부찌개");
             MENU.add("감자탕");
-            MENU.add("순두부찌개");
+            MENU.add("된장찌개");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
@@ -129,7 +129,6 @@ public class SurveyMealElse extends AppCompatActivity {
             MENU.add("짜장면");
             MENU.add("파스타");
             MENU.add("비빔냉면");
-            MENU.add("소바");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
@@ -193,6 +192,9 @@ public class SurveyMealElse extends AppCompatActivity {
         MENU = new ArrayList<>();
         MENU.add("떡볶이");
         MENU.add("만두");
+        MENU.add("튀김");
+        MENU.add("순대");
+        MENU.add("어묵");
 
         Intent intent = new Intent(getApplicationContext(), Roulette.class);
         startActivity(intent);

@@ -60,9 +60,9 @@ public class SurveyMealFish extends AppCompatActivity {
             MENU = new ArrayList<>();
             MENU.add("생선구이");
             MENU.add("코다리");
-            MENU.add("아구찜");
+            MENU.add("생선찜");
             MENU.add("매운탕");
-            MENU.add("장어");
+            MENU.add("장어/복어");
             MENU.add("추어탕");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
@@ -103,7 +103,6 @@ public class SurveyMealFish extends AppCompatActivity {
             MENU.add("회/물회");
             MENU.add("연어");
             MENU.add("산낙지");
-            MENU.add("꼬막");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
