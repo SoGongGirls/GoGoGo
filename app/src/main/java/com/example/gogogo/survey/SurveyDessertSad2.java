@@ -59,7 +59,8 @@ public class SurveyDessertSad2 extends AppCompatActivity {
     public void selectEight(View view) {
         MENU = new ArrayList<>();
         MENU.add("애플파이");
-        MENU.add("호박파이");
+        MENU.add("펌킨파이");
+        MENU.add("떡");
 
         Intent intent = new Intent(getApplicationContext(), Roulette.class);
         startActivity(intent);

@@ -82,6 +82,50 @@ public class DeliveryList extends Fragment {
                     menuList2.add("볶음밥");
                 }
 
+                if (Arrays.asList(menuList).contains("꽈배기")) {
+                    menuList2.remove("꽈배기");
+                    menuList2.add("츄러스");
+                }
+                if (Arrays.asList(menuList).contains("빙수")) {
+                    menuList2.remove("빙수");
+                    menuList2.add("딸기빙수");
+                    menuList2.add("인절미빙수");
+                    menuList2.add("팥빙수");
+                    menuList2.add("요거트빙수");
+                    menuList2.add("망고빙수");
+                }
+                if (Arrays.asList(menuList).contains("와플")) {
+                    menuList2.remove("와플");
+                    menuList2.add("벨기에와플");
+                    menuList2.add("아메리칸와플");
+                    menuList2.add("크로플");
+                }
+                if (Arrays.asList(menuList).contains("차")) {
+                    menuList2.remove("차");
+                    menuList2.add("율무차");
+                    menuList2.add("녹차");
+                    menuList2.add("홍차");
+                    menuList2.add("꿀차");
+                    menuList2.add("코코아");
+                    menuList2.add("유자차");
+                    menuList2.add("헛개차");
+                }
+                if (Arrays.asList(menuList).contains("케익")) {
+                    menuList2.remove("케익");
+                    menuList2.add("치즈케이크");
+                    menuList2.add("초코케이크");
+                    menuList2.add("당근케이크");
+                }
+                if (Arrays.asList(menuList).contains("타르트")) {
+                    menuList2.remove("타르트");
+                    menuList2.add("에그타르트");
+                    menuList2.add("패션후르츠타르트");
+                }
+                if (Arrays.asList(menuList).contains("프레즐")) {
+                    menuList2.remove("프레즐");
+                    menuList2.add("츄러스");
+                }
+
 
                 // 룰렛 결과에 해당하는 데이터만 보여주기
                 if (menuList2.contains(Roulette.result3)) {

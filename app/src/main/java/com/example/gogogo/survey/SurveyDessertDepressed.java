@@ -109,6 +109,9 @@ public class SurveyDessertDepressed extends AppCompatActivity {
             MENU.add("마카롱");
             MENU.add("츄러스");
             MENU.add("도넛");
+            MENU.add("쿠키");
+            MENU.add("호떡");
+            MENU.add("빵");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
