@@ -24,8 +24,9 @@ public class PostingActivity extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
 
-    private String doc_id;
+    private String doc_id, ID_COLLECTION;
     private TextView title, nickname, date, contents;
+    private Integer comu_id;
 
     private String TAG = "포스팅 상세페이지";
 
@@ -41,9 +42,18 @@ public class PostingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         doc_id = intent.getStringExtra("doc_id");
+        comu_id = intent.getIntExtra("comu_id", 1);
         Log.v(TAG, doc_id);
 
-        mStore.collection("FirebaseID.post").document(doc_id)
+        if(comu_id == 2){
+            ID_COLLECTION = FirebaseID.eatingmate;
+        }else if(comu_id == 3){
+            ID_COLLECTION = FirebaseID.tips;
+        }else{
+            ID_COLLECTION = FirebaseID.post;
+        }
+
+        mStore.collection(ID_COLLECTION).document(doc_id)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -65,6 +75,7 @@ public class PostingActivity extends AppCompatActivity {
 
                     } else {
                         Log.d(TAG, "No such document");
+                        contents.setText("일시적인 오류입니다.");
                     }
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());

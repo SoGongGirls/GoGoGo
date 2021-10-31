@@ -1,7 +1,14 @@
 package com.example.gogogo.community;
 
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+import android.util.Log;
+
+import androidx.annotation.RequiresApi;
+
 import com.google.firebase.firestore.ServerTimestamp;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class PostItem {
@@ -11,7 +18,6 @@ public class PostItem {
     private String nickname;
     private Integer like;
     private String postId;
-    @ServerTimestamp
     private Date date;
 
     public PostItem(String documentId, String nickname, String title, String contents, String postId) {
@@ -20,6 +26,14 @@ public class PostItem {
         this.contents = contents;
         this.nickname = nickname;
         this.postId = postId;
+    }
+    public PostItem(String documentId, String nickname, String title, String contents, String postId, Date date){
+        this.documentId = documentId;
+        this.title = title;
+        this.contents = contents;
+        this.nickname = nickname;
+        this.postId = postId;
+        this.date = date;
     }
 
     public String getDocumentId() {

@@ -3,7 +3,9 @@ package com.example.gogogo.community;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,11 +36,17 @@ public class Community_insert1 extends AppCompatActivity {
 
     TextView toolbar_title;
     ImageView close;
+    String toolbartitle ="자유 게시판";
+    String community_id = FirebaseID.post;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_insert1);
+
+        Intent i = getIntent();
+        Integer num = i.getIntExtra("communitynumber", 1);
+
 
         /* 객체 초기화 */
         toolbar_title = findViewById(R.id.toolbar_title);
@@ -49,7 +57,12 @@ public class Community_insert1 extends AppCompatActivity {
         mContents = findViewById(R.id.insert_content);
 
         // 제목 설정
-        toolbar_title.setText("자유 게시판");
+        if (num == 2){
+            toolbartitle = "밥동무 찾기";
+        }else if(num == 3){
+            toolbartitle = "자취 꿀팁";
+        }
+        toolbar_title.setText(toolbartitle);
         //엑스버튼
         close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,19 +84,26 @@ public class Community_insert1 extends AppCompatActivity {
                         }
                     });
         }
+
         //제출버튼
+        if (num == 2){
+            community_id = FirebaseID.eatingmate;
+        }else if(num == 3){
+            community_id = FirebaseID.tips;
+        }
+        Log.e("커뮤니티 아이디 확인", community_id);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mAuth.getCurrentUser() != null){
-                    String postId = mStore.collection(FirebaseID.post).document().getId();
+                    String postId = mStore.collection(community_id).document().getId();
                     Map<String, Object> data = new HashMap<>();
                     data.put(FirebaseID.documentId, mAuth.getCurrentUser().getUid());
                     data.put(FirebaseID.title,mTitle.getText().toString());
                     data.put(FirebaseID.nickname, nickname);
                     data.put(FirebaseID.contents, mContents.getText().toString());
                     data.put(FirebaseID.timestamp, FieldValue.serverTimestamp());
-                    mStore.collection(FirebaseID.post).document(postId).set(data, SetOptions.merge());
+                    mStore.collection(community_id).document(postId).set(data, SetOptions.merge());
                     finish();
                 }else{
                     Toast.makeText(getApplicationContext(), "로그인 해주세요.", Toast.LENGTH_SHORT).show();
