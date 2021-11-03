@@ -15,6 +15,15 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".community.PostingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login.SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".memo.UpdateActivity"
             android:exported="true" />
         <activity
@@ -24,7 +33,7 @@
             android:name=".my_note"
             android:exported="true" />
         <activity
-            android:name=".Store_detail_test"
+            android:name=".my_location"
             android:exported="true" />
         <activity
             android:name=".Cook_Yes"
@@ -45,6 +54,9 @@
             android:name=".storeInfo.StoreDetail"
             android:exported="true" />
         <activity
+            android:name=".storeInfo.DeliveryDetail"
+            android:exported="true" />
+        <activity
             android:name=".community.Community_update1"
             android:exported="true" />
         <activity
@@ -57,8 +69,8 @@
             android:exported="true" /> <!-- .MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan">
+            android:exported="true">
+<!--            android:windowSoftInputMode="adjustPan">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,6 +91,8 @@
         <activity android:name=".Roulette" />
         <activity android:name=".survey.SurveyMealFish" />
         <activity android:name=".survey.SurveyMealElse" />
+        <activity android:name=".survey.SurveyDessertDepressed2"/>
+        <activity android:name=".survey.SurveyDessertSad2"/>
     </application>
 
 </manifest>

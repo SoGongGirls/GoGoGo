@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kopubworld_dotum_pro_medium"
+        android:textStyle="bold"
+        android:text="Q. 케이크 VS 파이 VS 와플"
+        android:layout_marginTop="70dp"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kopubworld_dotum_pro_medium"
+        android:text="사진을 클릭해주세요"
+        android:textSize="17dp"
+        android:textColor="#8c8c8c"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/select7"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:onClick="selectSeven"
+                app:srcCompat="@drawable/cake" />
+
+            <TextView
+                android:id="@+id/select7_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_pro_medium"
+                android:layout_marginTop="5dp"
+                android:textColor="#666666"
+                android:textSize="20dp"
+                android:text="케이크" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/select8"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:onClick="selectEight"
+                app:srcCompat="@drawable/pie" />
+
+            <TextView
+                android:id="@+id/select8_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_pro_medium"
+                android:layout_marginTop="5dp"
+                android:textColor="#666666"
+                android:textSize="20dp"
+                android:text="파이" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/select9"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:onClick="selectNine"
+                app:srcCompat="@drawable/waffle" />
+
+            <TextView
+                android:id="@+id/select9_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_pro_medium"
+                android:layout_marginTop="5dp"
+                android:textColor="#666666"
+                android:textSize="20dp"
+                android:text="와플" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

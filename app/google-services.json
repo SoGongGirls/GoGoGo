@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1067407000210",
+    "project_id": "logincommunity-e998d",
+    "storage_bucket": "logincommunity-e998d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067407000210:android:22dbd35974d4e2e9bd9c4b",
+        "android_client_info": {
+          "package_name": "com.example.gogogo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067407000210-s6dfaaq5p1dlfnpu8kedhc02fgd1udgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt9ex_uALQdjh5nfWbZZ-zjsCjhzKBRR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067407000210-s6dfaaq5p1dlfnpu8kedhc02fgd1udgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067407000210:android:6e264c9b960c0480bd9c4b",
+        "android_client_info": {
+          "package_name": "org.techtown.logincommunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067407000210-s6dfaaq5p1dlfnpu8kedhc02fgd1udgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt9ex_uALQdjh5nfWbZZ-zjsCjhzKBRR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067407000210-s6dfaaq5p1dlfnpu8kedhc02fgd1udgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

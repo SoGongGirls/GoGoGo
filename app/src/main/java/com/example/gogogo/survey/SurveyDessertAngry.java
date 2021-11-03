@@ -1,5 +1,8 @@
 package com.example.gogogo.survey;
 
+import static com.example.gogogo.survey.SurveyMeal.MENU;
+
+import android.content.Intent;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -10,6 +13,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gogogo.R;
+import com.example.gogogo.Roulette;
+
+import java.util.ArrayList;
 
 public class SurveyDessertAngry extends AppCompatActivity {
 
@@ -23,6 +29,9 @@ public class SurveyDessertAngry extends AppCompatActivity {
     // 답변 내용
     TextView select10Tv;
     TextView select11Tv;
+
+    int count10 = 0;
+    int count11 = 0;
 
 
     @Override
@@ -46,24 +55,69 @@ public class SurveyDessertAngry extends AppCompatActivity {
     }
 
     public void selectTen(View view) {
-        question3.setText("Q. 맛 VS 칼로리");
+        count10 += 1;
 
-        select10.setImageResource(R.drawable.fiona_person);
-        select11.setImageResource(R.drawable.fiona_monster);
+        if (count10 == 2) {
+            MENU = new ArrayList<>();
+            MENU.add("아이스크림");
+            MENU.add("크로플");
+            MENU.add("밀크쉐이크");
+            MENU.add("젤라또");
 
-        select10Tv.setText("맛");
-        select11Tv.setText("칼로리");
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count10 == 1 && count11 == 1) {
+            MENU = new ArrayList<>();
+            MENU.add("에그타르트");
+            MENU.add("패션후르츠타르트");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else {
+            question3.setText("Q. 맛 VS 칼로리");
+
+            select10.setImageResource(R.drawable.fiona_person);
+            select11.setImageResource(R.drawable.fiona_monster);
+
+            select10Tv.setText("맛");
+            select11Tv.setText("칼로리");
+        }
     }
 
     public void selectEleven(View view) {
-        question3.setText("Q. 맛 VS 칼로리");
+        count11 += 1;
 
-        // 답변 사진
-        select10.setImageResource(R.drawable.fiona_person);
-        select11.setImageResource(R.drawable.fiona_monster);
+        if (count10 == 1 && count11 == 1) {
+            MENU = new ArrayList<>();
+            MENU.add("녹차");
+            MENU.add("헛개차");
 
-        // 답변 내용
-        select10Tv.setText("맛");
-        select11Tv.setText("칼로리");
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else if (count11 == 2) {
+            MENU = new ArrayList<>();
+            MENU.add("율무차");
+            MENU.add("홍차");
+            MENU.add("꿀차");
+            MENU.add("코코아");
+            MENU.add("유자차");
+
+            Intent intent = new Intent(getApplicationContext(), Roulette.class);
+            startActivity(intent);
+        }
+        else {
+            question3.setText("Q. 맛 VS 칼로리");
+
+            // 답변 사진
+            select10.setImageResource(R.drawable.fiona_person);
+            select11.setImageResource(R.drawable.fiona_monster);
+
+            // 답변 내용
+            select10Tv.setText("맛");
+            select11Tv.setText("칼로리");
+        }
     }
 }

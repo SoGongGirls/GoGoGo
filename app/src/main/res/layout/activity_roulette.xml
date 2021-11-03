@@ -15,6 +15,7 @@
         android:layout_margin="5dp">
 
 
+<<<<<<< HEAD
         <Button
             android:id="@+id/btnRotate"
             android:layout_width="match_parent"
@@ -62,3 +63,28 @@
     </LinearLayout>
 
 </FrameLayout>
+=======
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="result"
+        android:textSize="25sp"/>
+
+    <Button
+        android:id="@+id/result2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40sp"
+        android:padding="15sp"
+        android:text="내 주변 매장 확인하기"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/kopubworld_dotum_pro_medium"
+        android:background="@drawable/round2" />
+
+</LinearLayout>
+>>>>>>> 2ec45b1833c408910d445149b68f067447479d6f

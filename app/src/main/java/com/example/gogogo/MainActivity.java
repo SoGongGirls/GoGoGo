@@ -75,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent i_bookmark = new Intent(MainActivity.this, my_note.class);
                         startActivity(i_bookmark);
                         break;
+                    case R.id.nav_location:
+                        Intent i_location = new Intent(MainActivity.this, my_location.class);
+                        startActivity(i_location);
+                        break;
                 }
                 drawer_layout.closeDrawer(navigationView);
                 return false;

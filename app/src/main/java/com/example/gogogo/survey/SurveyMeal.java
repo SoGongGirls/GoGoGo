@@ -81,7 +81,6 @@ public class SurveyMeal extends AppCompatActivity {
         MENU.add("쌀국수");
         MENU.add("타코");
         MENU.add("마라탕");
-        MENU.add("꿔바로우");
 
         Intent intent = new Intent(getApplicationContext(), Roulette.class);
         startActivity(intent);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -21,7 +22,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.gogogo.storeInfo.StoreRecommend;
 import com.example.gogogo.survey.SurveyMeal;
 import com.example.gogogo.survey.SurveyMealMeat;
 
@@ -43,6 +46,7 @@ public class Roulette extends AppCompatActivity {
     private ArrayList<String> STRINGS;
     private float initAngle = 0.0f;
     private int num_roulette;
+    public static String result3;
 
 
     @Override
@@ -55,6 +59,7 @@ public class Roulette extends AppCompatActivity {
         result = findViewById(R.id.result);
         btnRotate = findViewById(R.id.btnRotate);
         layoutRoulette = findViewById(R.id.layoutRoulette);
+        Button result2 = (Button) findViewById(R.id.result2);   // 내 주변 매장 확인하기
 
 
         num_roulette = number;
@@ -70,7 +75,20 @@ public class Roulette extends AppCompatActivity {
             }
         });
 
-
+        // 내 주변 매장 확인하기
+        result2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                result3 = result.getText().toString();
+                if (result3.equals("result")) {
+                    Toast.makeText(getApplicationContext(), "룰렛을 먼저 돌려주세요", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), StoreRecommend.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
 

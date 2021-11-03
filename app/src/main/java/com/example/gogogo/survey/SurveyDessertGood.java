@@ -71,6 +71,8 @@ public class SurveyDessertGood extends AppCompatActivity {
             MENU = new ArrayList<>();
             MENU.add("토스트");
             MENU.add("샌드위치");
+            MENU.add("샐러드");
+            MENU.add("핫도그");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
@@ -80,6 +82,9 @@ public class SurveyDessertGood extends AppCompatActivity {
             MENU.add("마카롱");
             MENU.add("츄러스");
             MENU.add("도넛");
+            MENU.add("쿠키");
+            MENU.add("호떡");
+            MENU.add("빵");
 
             Intent intent = new Intent(getApplicationContext(), Roulette.class);
             startActivity(intent);
