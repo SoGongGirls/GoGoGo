@@ -27,9 +27,14 @@ import com.example.gogogo.survey.SurveyMealMeat;
 
 import java.util.ArrayList;
 
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Shape;
+import nl.dionsegijn.konfetti.models.Size;
+
 public class Roulette extends AppCompatActivity {
     private CircleManager circleManager;
     private RelativeLayout layoutRoulette;
+    public KonfettiView konfettiView;
 
     private Button btnRotate;
     private TextView result;
@@ -45,6 +50,7 @@ public class Roulette extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roulette);
 
+        konfettiView = findViewById(R.id.viewKonfetti);
         number = SurveyMeal.MENU.size();
         result = findViewById(R.id.result);
         btnRotate = findViewById(R.id.btnRotate);
@@ -63,6 +69,8 @@ public class Roulette extends AppCompatActivity {
                 rotateLayout(layoutRoulette, num_roulette);
             }
         });
+
+
     }
 
 
@@ -203,8 +211,21 @@ public class Roulette extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         layoutRoulette.setRotation(360 - initAngle);
+                        konfettiView.build()
+                                .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+                                .setDirection(0.0, 359.0)
+                                .setSpeed(1f, 3f)
+                                .setFadeOutEnabled(true)
+                                .setTimeToLive(1500L)
+                                .addShapes(Shape.RECT, Shape.CIRCLE)
+                                .addSizes(new Size(11, 5))
+                                .setPosition(-50f, konfettiView.getWidth() + 50f, -50f, -50f)
+                                .streamFor(250, 5000L);
                     }
+
                 });
+
+
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
