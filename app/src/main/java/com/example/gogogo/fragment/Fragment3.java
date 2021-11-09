@@ -21,7 +21,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class Fragment3 extends Fragment {
 
-    TextView toolbar_title;
+//    TextView toolbar_title;
     ViewPager viewPager;
     TabLayout tabLayout;
     Button go_login;
@@ -34,7 +34,7 @@ public class Fragment3 extends Fragment {
         View view = inflater.inflate(R.layout.fragment3, container, false);
 
         /* 객체 초기화 */
-        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
+//        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         go_login = (Button) view.findViewById(R.id.go_login);
@@ -46,7 +46,7 @@ public class Fragment3 extends Fragment {
             }
         });
 
-        toolbar_title.setText("커뮤니티");  // 제목 설정
+//        toolbar_title.setText("커뮤니티");  // 제목 설정
 
         tabLayout.addTab(tabLayout.newTab().setText("자유 게시판"));
         tabLayout.addTab(tabLayout.newTab().setText("밥동무 찾기"));

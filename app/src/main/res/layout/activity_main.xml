@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar_main"
+        layout="@layout/toolbar_new"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -39,7 +39,7 @@
     <!--  서랍 기능의 레이아웃  -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawer"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
