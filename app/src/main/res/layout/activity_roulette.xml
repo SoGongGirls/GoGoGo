@@ -39,11 +39,25 @@
         android:textSize="25sp"/>
 
     <Button
-        android:id="@+id/result2"
+        android:id="@+id/locationButton"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40sp"
+        android:padding="15sp"
+        android:text="내 위치 설정하기"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/orange3"
+        android:fontFamily="@font/kopubworld_dotum_pro_medium"
+        android:background="@drawable/round3" />
+
+    <Button
+        android:id="@+id/result2"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
         android:padding="15sp"
         android:text="내 주변 매장 확인하기"
         android:textSize="18sp"
