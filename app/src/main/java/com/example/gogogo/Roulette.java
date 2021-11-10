@@ -142,6 +142,15 @@ public class Roulette extends AppCompatActivity {
         });
     }
 
+    // 뒤로가기 버튼 눌렀을때, 홈화면으로 이동하기
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Roulette.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
 
     /* Rotate roulette */
     public void rotateLayout(final RelativeLayout layout, final int num) {
