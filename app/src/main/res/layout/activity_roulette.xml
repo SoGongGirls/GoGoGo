@@ -54,7 +54,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="40sp"
             android:padding="15sp"
-            android:text="내 주변 매장 확인하기"
+            android:text="내 위치 확인하기"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@color/orange3"
