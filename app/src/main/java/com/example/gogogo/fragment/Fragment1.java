@@ -22,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 public class Fragment1 extends Fragment {
 
     NavigationView navigationView;
-    TextView toolbar_title;
+//    TextView toolbar_title;
     Button cook_yes;
     Button button2;
 
@@ -35,10 +35,10 @@ public class Fragment1 extends Fragment {
 
         /* 객체 초기화 */
         NavigationView navigationView = view.findViewById(R.id.drawer);
-        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
+//        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         cook_yes = (Button) view.findViewById(R.id.cook_yes);
 
-        toolbar_title.setText("메뉴 추천");  // 제목 설정
+//        toolbar_title.setText("메뉴 추천");  // 제목 설정
 
         cook_yes.setOnClickListener(new View.OnClickListener() {
             @Override

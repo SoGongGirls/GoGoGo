@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
 
-        my_page.bringToFront();
+//        my_page.bringToFront();
+
         my_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
