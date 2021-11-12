@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".message.MessageMain"
+            android:exported="true" />
+        <activity
             android:name=".community.PostingActivity"
             android:exported="true" />
         <activity
@@ -70,7 +73,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-<!--            android:windowSoftInputMode="adjustPan">-->
+
+            <!-- android:windowSoftInputMode="adjustPan"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -91,8 +95,8 @@
         <activity android:name=".Roulette" />
         <activity android:name=".survey.SurveyMealFish" />
         <activity android:name=".survey.SurveyMealElse" />
-        <activity android:name=".survey.SurveyDessertDepressed2"/>
-        <activity android:name=".survey.SurveyDessertSad2"/>
+        <activity android:name=".survey.SurveyDessertDepressed2" />
+        <activity android:name=".survey.SurveyDessertSad2" />
     </application>
 
 </manifest>
