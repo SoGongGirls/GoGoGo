@@ -1,11 +1,13 @@
 package com.example.gogogo.storeInfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.gogogo.MainActivity;
 import com.example.gogogo.R;
 import com.example.gogogo.storeInfo.DeliveryList;
 import com.example.gogogo.storeInfo.StoreList;
@@ -55,5 +57,14 @@ public class StoreRecommend extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) { }
         });
 
+    }
+
+    // 뒤로가기 버튼 눌렀을때, 홈화면으로 이동하기
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(StoreRecommend.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }

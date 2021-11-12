@@ -3,6 +3,7 @@ package com.example.gogogo.storeInfo;
 import android.util.Log;
 
 import com.example.gogogo.MainActivity;
+import com.example.gogogo.Roulette;
 import com.example.gogogo.my_location;
 
 public class DeliveryItem {
@@ -37,7 +38,7 @@ public class DeliveryItem {
 
     public double getDeliveryTime() {
         // return DistanceByDegree(my_location.myLatitude, my_location.myLongitude, deliveryLatitude, deliveryLongitude);
-        return DistanceByDegree(SurveyResult.myLatitude, SurveyResult.myLongitude, deliveryLatitude, deliveryLongitude);
+        return DistanceByDegree(Roulette.myLatitude, Roulette.myLongitude, deliveryLatitude, deliveryLongitude);
     }
 
 

@@ -33,7 +33,7 @@ import java.util.List;
 public class Fragment2 extends Fragment {
 
     IngredientAdapter adapter;
-    TextView toolbar_title;
+//    TextView toolbar_title;
     ListView ingredient_list;
     ImageView ingredient_add;
     ImageView ingredient_refresh;
@@ -50,13 +50,13 @@ public class Fragment2 extends Fragment {
 
         /* 객체 초기화 */
         adapter = new IngredientAdapter();
-        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
+//        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         ingredient_list = (ListView) view.findViewById(R.id.ingredient_list);
         ingredient_add = (ImageView) view.findViewById(R.id.ingredient_add);
         ingredient_refresh = (ImageView) view.findViewById(R.id.ingredient_refresh);
         recipe_search = (Button) view.findViewById(R.id.recipe_search);
 
-        toolbar_title.setText("나의 냉장고");   // 제목 설정
+//        toolbar_title.setText("나의 냉장고");   // 제목 설정
         ingredient_list.setAdapter(adapter);  // 리스트뷰 어댑터 설정
 
         //재료 추가버튼
