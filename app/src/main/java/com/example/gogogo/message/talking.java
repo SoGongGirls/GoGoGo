@@ -1,33 +1,56 @@
 package com.example.gogogo.message;
 
+import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.gogogo.R;
+import com.example.gogogo.login.FirebaseID;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
 import org.w3c.dom.Comment;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class talking extends AppCompatActivity {
     //출처: https://javapp.tistory.com/151 [Don't Quit ! DOIT 포기하지 말자]
 
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
     private String chatRoomUid; //채팅방 하나 id
     private String myuid; //나의 id
@@ -35,56 +58,106 @@ public class talking extends AppCompatActivity {
 
     private Button button;
     private EditText editText;
-
-
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy.MM.dd HH:mm");
+//    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy.MM.dd HH:mm");
 
     private String TAG = "토킹";
-    private Button button;
-    private EditText editText;
 
-    private talkAdapter mAdapter;
-    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView mRecyclerView;
+
+    private List<ChatModel> chatlist;
+    private String nick = "nick1"; //테스트용
+
+//    @Override
+//    public void onBackPressed(){
+//        Intent intent = new(talking.this, MessageMain.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
+//        | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
+//        overridePendingTransition(R.anim.in_left, R.anim.out_right);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.talking);
 
+//        mRecyclerView = findViewById(R.id.talking_list);
+//        mRecyclerView.setHasFixedSize(true);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//
+//        editText = findViewById(R.id.talking_edt);
+//        button = findViewById(R.id.talking_submit);
+//
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String msg = editText.getText().toString();
+//                Date now = new Date();
+//                if(msg != null){
+//                    ChatData chat = new ChatData();
+//                    chat.setNickname(nick);
+//                    chat.setTime(now);
+//                    chat.setMsg(msg);
+//                    myRef.push().setValue(chat);
+//                }
+//            }
+//        });
+//
+//        chatlist = new ArrayList<>();
+//        mAdapter = new ChatAdapter(chatlist, talking.this, nick);
+//        mRecyclerView.setAdapter(mAdapter);
+//
+//        myRef.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//                ChatData chat = dataSnapshot.getValue(ChatData.class);//채팅데이터를 가져온다
+//                ((ChatAdapter)mAdapter).addChat(chat);
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+
+        //init();
+        //sendMsg();
         init();
-        sendMsg();
-
-
-
-        //토킹하는 곳
-        //토킹 불러오기
-        //톡 보내기
+        sendTalk();
     }//onCreate
 
+
     private void init(){
-        myuid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        myuid = FirebaseAuth.getInstance().getCurrentUser().getUid(); // 채팅 보내는 사람
         destUid = getIntent().getStringExtra("destUid"); //채팅 상대
 
-        recyclerView = (RecyclerView)findViewById(R.id.talking_list);
-        editText = findViewById(R.id.talking_edt);
-        button = findViewById(R.id.talking_submit);
+        mRecyclerView = (RecyclerView)findViewById(R.id.talking_list);
+        button = (Button)findViewById(R.id.talking_submit);
+        editText = (EditText)findViewById(R.id.talking_edt);
 
-        if(editText.getText().toString() == null) button.setEnabled(false);
+        if(editText.getText().toString() == null )button.setEnabled(false);
         else button.setEnabled(true);
 
         checkChatRoom();
-    }
-
-
-    public class ChatModel {
-        public Map<String,Boolean> users = new HashMap<>(); //채팅방 유저
-        public Map<String, Comment> comments = new HashMap<>(); //채팅 메시지
-
-        public static class Comment {
-            public String uid;
-            public String message;
-            public Object timestamp;
-        }
     }
 
 
@@ -100,7 +173,7 @@ public class talking extends AppCompatActivity {
 
                 if(chatRoomUid == null){
                     Toast.makeText(talking.this, "채팅방 생성", Toast.LENGTH_SHORT).show();
-                    button.Enabled(false);
+                    button.setEnabled(false);
                     firebaseDatabase.getReference().child("chatrooms").push()
                             .setValue(chatModel)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -120,10 +193,7 @@ public class talking extends AppCompatActivity {
     //채팅방들 중 자신이 있는 지 확인하고 자신이 있으면 채팅할 상대방 id가 포함돼 있을때 채팅방 key를 가져와 저장한다.
     private void checkChatRoom() {
         //자신 key == true 일때 chatModel 가져온다.
-        /* chatModel
-        public Map<String,Boolean> users = new HashMap<>(); //채팅방 유저
-        public Map<String, ChatModel.Comment> comments = new HashMap<>(); //채팅 메시지
-        */
+
         firebaseDatabase.getReference().child("chatrooms")
                 .orderByChild("users/" + myuid)
                 .equalTo(true)
@@ -136,8 +206,8 @@ public class talking extends AppCompatActivity {
                                 //상대방 id 포함돼 있을때 채팅방 key 가져옴
                                 chatRoomUid = dataSnapshot.getKey();
                                 button.setEnabled(true); //동기화
-                                recyclerView.setLayoutManager(new LinearLayoutManager(MessageActivity.this));
-                                recyclerView.setAdapter(new RecyclerViewAdapter()); //메시지 보내기
+                                mRecyclerView.setLayoutManager(new LinearLayoutManager(talking.this));
+                                mRecyclerView.setAdapter(new ChatAdapter()); //메시지 보내기
                                 sendMsgToDataBase();
                             }
                         }
@@ -166,26 +236,112 @@ public class talking extends AppCompatActivity {
                     });
         }
     }
-    //채팅 내용 읽어들임
-    private void getMessageList() {
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").child(chatRoomUid).child("comments")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        comments.clear();
-                        for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                            comments.add(dataSnapshot.getValue(ChatModel.Comment.class));
+
+
+
+    public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+        private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        private List<ChatModel.Comment> comments;
+
+        public ChatAdapter(){
+            comments = new ArrayList<>();
+            //getDestUid();
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return null;
+        }
+
+//        private void getDestUid(){
+//            mAuth.getUid(destUid).addListenerForSingleValueEvent(new ValueEventListener(){
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot){
+//                    User destUser = snapshot.getValue(User.class);
+//                    getMessageList();
+//                }
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error){
+//
+//                }
+//            });
+//        }
+        //채팅 내용 읽어들임
+        private void getMessageList() {
+            FirebaseDatabase.getInstance().getReference().child("chatrooms").child(chatRoomUid).child("comments")
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            comments.clear();
+                            for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                comments.add(dataSnapshot.getValue(ChatModel.Comment.class));
+                            }
+                            notifyDataSetChanged();
+                            mRecyclerView.scrollToPosition(comments.size()-1);
                         }
-                        notifyDataSetChanged();
-                        recyclerView.scrollToPosition(comments.size()-1);
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
+            ViewHolder viewHolder = ((ViewHolder)holder);
+            if(comments.get(position).uid.equals(myuid)) {//나의 uid 이면
+                //나의 말풍선 오른쪽으로
+                viewHolder.textViewMsg.setText(comments.get(position).message);
+                viewHolder.textViewMsg.setBackgroundResource(R.drawable.mybubble);
+                viewHolder.linearLayoutDest.setVisibility(View.INVISIBLE);
+                //상대방 레이아웃
+                viewHolder.linearLayoutRoot.setGravity(Gravity.RIGHT);
+                viewHolder.linearLayoutTime.setGravity(Gravity.RIGHT);
+            }else{
+                //상대방 말풍선 왼쪽
+//                viewHolder.textViewName.setText(destUser.name);
+                viewHolder.linearLayoutDest.setVisibility(View.VISIBLE);
+                viewHolder.textViewMsg.setBackgroundResource(R.drawable.yoububble);
+                viewHolder.textViewMsg.setText(comments.get(position).message);
+                viewHolder.linearLayoutRoot.setGravity(Gravity.LEFT);
+                viewHolder.linearLayoutTime.setGravity(Gravity.LEFT);
+            }
+//            viewHolder.textViewTimeStamp.setText(getDateTime(position));
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.N)
+//        public String getDateTime(int position) {
+//            long unixTime=(long) comments.get(position).timestamp;
+//            Date date = new Date(unixTime);
+//            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+//            String time = simpleDateFormat.format(date);
+//            return time;
+//        }
+
+        @Override public int getItemCount() {
+            return comments.size();
+        }
+
+        private class ViewHolder extends RecyclerView.ViewHolder {
+            public TextView textViewMsg; //메시지 내용
+            public TextView textViewName;
+            public TextView textViewTimeStamp;
+
+            public LinearLayout linearLayoutDest;
+            public LinearLayout linearLayoutRoot;
+            public LinearLayout linearLayoutTime;
+            public ViewHolder(@NonNull View itemView) {
+                super(itemView);
+                textViewMsg = (TextView)itemView.findViewById(R.id.item_messagebox_textview_msg);
+                textViewName = (TextView)itemView.findViewById(R.id.item_messagebox_TextView_name);
+                textViewTimeStamp = (TextView)itemView.findViewById(R.id.item_messagebox_textview_timestamp);
+
+                linearLayoutRoot = (LinearLayout)itemView.findViewById(R.id.item_messagebox_root);
+                linearLayoutTime = (LinearLayout)itemView.findViewById(R.id.item_messagebox_layout_timestamp);
+            }
+        }
+
     }
-
-
 
 }

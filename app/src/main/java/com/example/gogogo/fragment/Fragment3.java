@@ -25,6 +25,7 @@ public class Fragment3 extends Fragment {
     ViewPager viewPager;
     TabLayout tabLayout;
     Button go_login;
+    Button go_message;
 
     @Nullable
     @Override
@@ -37,12 +38,21 @@ public class Fragment3 extends Fragment {
 //        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        //임시버튼 두개
         go_login = (Button) view.findViewById(R.id.go_login);
+        go_message = (Button)view.findViewById(R.id.go_message);
 
         go_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
+
+        go_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ChatFragment.class));
             }
         });
 

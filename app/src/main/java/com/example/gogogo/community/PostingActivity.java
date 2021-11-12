@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.gogogo.R;
 import com.example.gogogo.login.FirebaseID;
+import com.example.gogogo.message.talking;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,6 +55,9 @@ public class PostingActivity extends AppCompatActivity {
 
     private EditText edt_comment;
     private Button submit_comment;
+    private Button go_chat;
+
+    private String nickname_p;
 
     String reply_nicks;
 
@@ -111,7 +115,7 @@ public class PostingActivity extends AppCompatActivity {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         Map<String, Object> shot = document.getData();
                         String date_p = String.valueOf(shot.get(FirebaseID.timestamp));
-                        String nickname_p = String.valueOf(shot.get(FirebaseID.nickname));
+                        nickname_p = String.valueOf(shot.get(FirebaseID.nickname));
                         String title_p = String.valueOf(shot.get(FirebaseID.title));
                         String contents_p = String.valueOf(shot.get(FirebaseID.contents));
 
@@ -153,6 +157,17 @@ public class PostingActivity extends AppCompatActivity {
 
             }
         });
+
+//        go_chat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent(getApplicationContext(), talking.class);
+//
+//                uid_temp = mAuth.getUid("");
+//                intent.putExtra("destUid", uid_temp );
+//            }
+//        });
     }//onCreate
 
     @Override

@@ -17,4 +17,6 @@ public class FirebaseID {
     public static String timestamp = "timestamp";
 
     public static String reply_contents = "reply_contents";
+
+    public static String message = "message";
 }

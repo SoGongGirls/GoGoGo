@@ -1,42 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_height="70dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
-        android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_margin="10dp"
+        android:background="@drawable/ic_baseline_person_24" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_width="275dp">
 
         <TextView
-            android:id="@+id/cl_name"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="홍길동" />
-
-        <TextView
-            android:id="@+id/cl_time"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="2021.11.01 00:18" />
-
-        <TextView
-            android:id="@+id/cl_contents"
+            android:id="@+id/item_chat_tv_title"
+            android:text="방이름"
             android:textColor="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            tools:text="저랑 된찌먹으로가용"
-            android:layout_height="wrap_content" />
+            android:id="@+id/item_chat_tv_comment"
+            android:text="내용"
+            android:layout_marginTop="5dp"/>
+
     </LinearLayout>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/item_chat_tv_timestamp"
+        android:layout_marginTop="10dp"
+        android:textSize="9dp"/>
+
 </LinearLayout>
+
