@@ -41,6 +41,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ly_simple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -54,8 +55,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="18dp"
                         android:text="초간단"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -63,6 +64,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ly_diet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -77,8 +79,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="18dp"
                         android:text="다이어트"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -95,6 +97,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ly_guest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -108,15 +111,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="초간단"
+                        android:layout_marginTop="18dp"
+                        android:text="손님접대"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ly_sub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -131,9 +135,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="초간단"
+                        android:layout_marginTop="18dp"
+                        android:text="반찬"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -149,6 +153,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ly_alcole"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -162,15 +167,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="손님접대"
+                        android:layout_marginTop="18dp"
+                        android:text="술안주"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ly_snack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -185,9 +191,120 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="초간단"
+                        android:layout_marginTop="18dp"
+                        android:text="간식"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ly_picnic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="18dp"
+                        android:text="나들이"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_rice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="18dp"
+                        android:text="밥요리"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ly_noodle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="18dp"
+                        android:text="면요리"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_soop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="18dp"
+                        android:text="찌개/국"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
