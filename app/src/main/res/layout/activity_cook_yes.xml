@@ -1,55 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Cook_Yes">
-
-    <include
-        layout="@layout/toolbar_back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="15sp">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/recipe_all"
+        <include
+            layout="@layout/toolbar_back2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="전체 레시피 보러가기"
-            android:textStyle="bold"
-            android:textSize="15sp" />
+            android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/test1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="survey"
-            android:textStyle="bold"
-            android:textSize="15sp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="15sp"
+            android:layout_marginBottom="15sp">
 
-        <Button
-            android:id="@+id/test2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="store"
-            android:textStyle="bold"
-            android:textSize="15sp" />
+            <Button
+                android:id="@+id/recipe_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="전체 레시피 보러가기"
+                android:textColor="@color/orange3"
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/roulette"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="초간단"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="다이어트"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="초간단"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="초간단"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="손님접대"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="초간단"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="roulette"
-            android:textStyle="bold"
-            android:textSize="15sp" />
+            android:layout_height="20dp" />
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

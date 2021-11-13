@@ -4,11 +4,12 @@
     android:id="@+id/community_item"
     android:layout_width="match_parent"
     android:layout_height="120sp"
-    android:layout_margin="15sp"
+    android:layout_margin="20sp"
     android:paddingTop="15sp"
     android:paddingBottom="15sp"
     android:paddingLeft="20sp"
-    android:background="@drawable/round1">
+    android:elevation="@dimen/cardview_default_radius"
+    android:background="@drawable/shadow">
 
     <TextView
         android:id="@+id/content_nick"
@@ -16,8 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8sp"
         android:text="닉네임"
-        android:textSize="15sp"
-        android:textColor="@color/black" />
+        android:textColor="@color/orange2"
+        android:textStyle="bold"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/content_title"
@@ -36,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/content_title"
         android:text="2021/09/16 09:58"
+        android:textStyle="bold"
         android:textColor="@color/gray"
         android:textSize="15sp" />
 

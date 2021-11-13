@@ -18,12 +18,9 @@ import org.w3c.dom.Text;
 
 public class Cook_Yes extends AppCompatActivity {
 
-    Button test1;
-    Button test2;
     Button recipe_all;
-    Button roulette;
-    ImageView back;
-    TextView toolbar_title;
+    ImageView back2;
+    TextView toolbar_title2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +28,11 @@ public class Cook_Yes extends AppCompatActivity {
         setContentView(R.layout.activity_cook_yes);
 
         /* 객체 초기화 */
-        test1 = findViewById(R.id.test1);
-        test2 = findViewById(R.id.test2);
         recipe_all = (Button) findViewById(R.id.recipe_all);
-        roulette = (Button) findViewById(R.id.roulette);
-        back = (ImageView) findViewById(R.id.back);
-        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
+        back2 = (ImageView) findViewById(R.id.back2);
+        toolbar_title2 = (TextView) findViewById(R.id.toolbar_title2);
 
-        toolbar_title.setText("요리할래");
-
-        test1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(view.getContext(), SurveyResult.class);
-                startActivity(intent1);
-            }
-        });
+        toolbar_title2.setText("요리할래");
 
 
 //        test2.setOnClickListener(new View.OnClickListener() {
@@ -67,20 +53,13 @@ public class Cook_Yes extends AppCompatActivity {
         });
 
 
-        back.setOnClickListener(new View.OnClickListener() {
+        back2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
 
-        roulette.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), Roulette.class);
-                startActivity(i);
-            }
-        });
 
     }
 }
