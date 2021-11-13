@@ -48,7 +48,6 @@ public class Recipe_all extends AppCompatActivity {
 
         switch (category){
             case "all": toolbar_title.setText("전체 레시피");
-                        query = "select name, foodtypename, rcode, image_url from "+tableName ;
                         break;
             case "초간단": toolbar_title.setText("초간단");
                         break;
@@ -91,10 +90,13 @@ public class Recipe_all extends AppCompatActivity {
 
 
         if (database != null) {
-            if (category != "all"){
+            if (category.equals("all") ){
+                query = "select name, foodtypename, rcode, image_url from "+tableName ;
+            }else{
                 query = "select name, foodtypename, rcode, image_url from "+ tableName
-                        + "where foodtypename =" + category;
+                        + " where foodtypename = \'" + category+ "\'  ";
             }
+            Log.e(TAG, query);
             Cursor cursor = database.rawQuery(query, null);
             Log.v(TAG, "조회된 데이터 수 : " + cursor.getCount());
 

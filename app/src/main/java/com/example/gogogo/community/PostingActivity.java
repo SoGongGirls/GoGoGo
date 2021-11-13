@@ -23,6 +23,7 @@ import com.example.gogogo.message.talking;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -32,6 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,7 +59,7 @@ public class PostingActivity extends AppCompatActivity {
     private Button submit_comment;
     private Button go_chat;
 
-    private String nickname_p;
+    private String destId;
 
     String reply_nicks;
 
@@ -74,6 +76,8 @@ public class PostingActivity extends AppCompatActivity {
         edt_comment = findViewById(R.id.edt_comment);
         submit_comment = findViewById(R.id.submit_comment);
         mReplyView = findViewById(R.id.post_comment_list);
+
+        go_chat = findViewById(R.id.go_chat);
         mDatas = new ArrayList<>();
 
         Intent intent = getIntent();
@@ -115,9 +119,10 @@ public class PostingActivity extends AppCompatActivity {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         Map<String, Object> shot = document.getData();
                         String date_p = String.valueOf(shot.get(FirebaseID.timestamp));
-                        nickname_p = String.valueOf(shot.get(FirebaseID.nickname));
+                        String nickname_p = String.valueOf(shot.get(FirebaseID.nickname));
                         String title_p = String.valueOf(shot.get(FirebaseID.title));
                         String contents_p = String.valueOf(shot.get(FirebaseID.contents));
+                        destId = String.valueOf(shot.get(FirebaseID.documentId));
 
                         title.setText(title_p);
                         nickname.setText(nickname_p);
@@ -158,16 +163,15 @@ public class PostingActivity extends AppCompatActivity {
             }
         });
 
-//        go_chat.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(getApplicationContext(), talking.class);
-//
-//                uid_temp = mAuth.getUid("");
-//                intent.putExtra("destUid", uid_temp );
-//            }
-//        });
+        go_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), talking.class);
+                intent.putExtra("destUid", destId );
+                Log.e(TAG, destId);
+                startActivity(intent);
+            }
+        });
     }//onCreate
 
     @Override

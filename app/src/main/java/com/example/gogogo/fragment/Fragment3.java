@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.gogogo.R;
 import com.example.gogogo.community.PagerAdapter;
 import com.example.gogogo.login.LoginActivity;
+import com.example.gogogo.message.MessageMain;
 import com.google.android.material.tabs.TabLayout;
 
 public class Fragment3 extends Fragment {
@@ -52,7 +53,7 @@ public class Fragment3 extends Fragment {
         go_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ChatFragment.class));
+                startActivity(new Intent(getActivity(), MessageMain.class));
             }
         });
 
