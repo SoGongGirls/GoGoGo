@@ -106,15 +106,12 @@ public class Community3 extends Fragment {
                                 String nickname = String.valueOf(shot.get(FirebaseID.nickname));
                                 String title = String.valueOf(shot.get(FirebaseID.title));
                                 String contents = String.valueOf(shot.get(FirebaseID.contents));
-                                //Timestamp(seconds=1633266831, nanoseconds=445000000)
-                                String temp = String.valueOf(shot.get(FirebaseID.timestamp));
-                                temp.replace("Timestamp(seconds=", "").replace(" nanoseconds=", "").replace(")", "");
 
-                                String[] array  = temp.split(",");
-                                Integer tai = 1633266831;
-                                Date date = new Date(tai * 1000);
-                                Log.e("커뮤니티1", ""+date);
-                                PostItem data = new PostItem(documentId, nickname, title, contents, postId, date);
+                                String temp = String.valueOf(shot.get(FirebaseID.timestamp));
+                                temp = temp.replace("Timestamp(seconds=", "").replace(" nanoseconds=", "").replace(")", "");
+                                String[] array = temp.split(",");
+                                String tai = array[0] ;
+                                PostItem data = new PostItem(documentId, nickname, title, contents, postId, tai);
                                 mDatas.add(data);
                             }
                             mAdapter = new PostAdapter(mDatas);

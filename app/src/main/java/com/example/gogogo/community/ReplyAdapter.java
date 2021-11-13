@@ -1,5 +1,7 @@
 package com.example.gogogo.community;
 
+import static com.example.gogogo.community.PostAdapter.getTimestampToDate;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +59,7 @@ public class ReplyAdapter extends BaseAdapter {
 //        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //        String to = transFormat.format(item.getDate());
 
-        reply_time.setText(item.getDate());
+        reply_time.setText(getTimestampToDate(item.getDate()));
 
         return convertView;
     }

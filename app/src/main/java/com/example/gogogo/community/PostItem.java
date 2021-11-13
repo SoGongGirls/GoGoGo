@@ -18,7 +18,7 @@ public class PostItem {
     private String nickname;
     private Integer like;
     private String postId;
-    private Date date;
+    private String  date;
 
     public PostItem(String documentId, String nickname, String title, String contents, String postId) {
         this.documentId = documentId;
@@ -27,7 +27,7 @@ public class PostItem {
         this.nickname = nickname;
         this.postId = postId;
     }
-    public PostItem(String documentId, String nickname, String title, String contents, String postId, Date date){
+    public PostItem(String documentId, String nickname, String title, String contents, String postId, String date){
         this.documentId = documentId;
         this.title = title;
         this.contents = contents;
@@ -68,11 +68,11 @@ public class PostItem {
         this.nickname = nickname;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
