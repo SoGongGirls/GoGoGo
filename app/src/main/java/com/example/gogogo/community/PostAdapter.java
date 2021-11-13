@@ -72,14 +72,27 @@ public class PostAdapter extends BaseAdapter {
         title.setText(item.getTitle());
         like.setText("000");
 
-        Date from = new Date();
-        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String to = transFormat.format(from);
+//        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        Date from = .
+//        String to = transFormat.format(from);
 
-        date.setText(to);
+        date.setText(getTimestampToDate(item.getDate()));
 
         return convertView;
     }
+
+    public static String getTimestampToDate(String timestampStr){
+        long timestamp = Long.parseLong(timestampStr);
+        Date date = new java.util.Date(timestamp*1000L);
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+9"));
+        String formattedDate = sdf.format(date);
+        return formattedDate;
+        //출처: https://aljjabaegi.tistory.com/460 [알짜배기 프로그래머]
+    }
+
+
+
 
 //    public void addItem(Drawable img, String name, String date) {
 //        IngredientItem item = new IngredientItem();

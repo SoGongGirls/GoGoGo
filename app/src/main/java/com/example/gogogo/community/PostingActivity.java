@@ -1,5 +1,7 @@
 package com.example.gogogo.community;
 
+import static com.example.gogogo.community.PostAdapter.getTimestampToDate;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -119,6 +121,11 @@ public class PostingActivity extends AppCompatActivity {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         Map<String, Object> shot = document.getData();
                         String date_p = String.valueOf(shot.get(FirebaseID.timestamp));
+
+                        date_p = date_p.replace("Timestamp(seconds=", "").replace(" nanoseconds=", "").replace(")", "");
+                        String[] array = date_p.split(",");
+                        date_p = array[0] ;
+
                         String nickname_p = String.valueOf(shot.get(FirebaseID.nickname));
                         String title_p = String.valueOf(shot.get(FirebaseID.title));
                         String contents_p = String.valueOf(shot.get(FirebaseID.contents));
@@ -126,7 +133,7 @@ public class PostingActivity extends AppCompatActivity {
 
                         title.setText(title_p);
                         nickname.setText(nickname_p);
-                        date.setText(date_p);
+                        date.setText(getTimestampToDate(date_p));
                         contents.setText(contents_p);
 
                     } else {
@@ -193,7 +200,11 @@ public class PostingActivity extends AppCompatActivity {
                                 String contents = String.valueOf(shot.get(FirebaseID.reply_contents));
                                 String reply_date = String.valueOf(shot.get(FirebaseID.timestamp));
 
-                                ReplyItem data = new ReplyItem(documentId, contents, nickname, replyId, reply_date);
+                                reply_date = reply_date.replace("Timestamp(seconds=", "").replace(" nanoseconds=", "").replace(")", "");
+                                String[] array = reply_date.split(",");
+                                String tai = array[0] ;
+
+                                ReplyItem data = new ReplyItem(documentId, contents, nickname, replyId, tai);
                                 mDatas.add(data);
                             }
                             mAdapter = new ReplyAdapter(mDatas);
