@@ -14,9 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.gogogo.fragment.ChatFragment;
 import com.example.gogogo.fragment.Fragment1;
 import com.example.gogogo.fragment.Fragment2;
 import com.example.gogogo.fragment.Fragment3;
+import com.example.gogogo.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -79,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_location:
                         Intent i_location = new Intent(MainActivity.this, my_location.class);
                         startActivity(i_location);
+                        break;
+                    case R.id.nav_log:
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        break;
+                    case R.id.nav_message:
+                        startActivity(new Intent(MainActivity.this, ChatFragment.class));
                         break;
                 }
                 drawer_layout.closeDrawer(navigationView);

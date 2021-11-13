@@ -63,14 +63,14 @@ public class PostAdapter extends BaseAdapter {
 
         TextView nickname = (TextView) convertView.findViewById(R.id.content_nick);
         TextView title = (TextView) convertView.findViewById(R.id.content_title);
-        TextView like = (TextView) convertView.findViewById(R.id.content_like);
+//        TextView like = (TextView) convertView.findViewById(R.id.content_like);
         TextView date = (TextView) convertView.findViewById(R.id.content_date);
 
         PostItem item = datas.get(position);
 
         nickname.setText(item.getNickname());
         title.setText(item.getTitle());
-        like.setText("000");
+//        like.setText("000");
 
         Date from = new Date();
         SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -57,15 +57,6 @@
             android:src="@drawable/ic_outline_thumb_up_24"
             app:tint="@color/orange4" />
 
-        <TextView
-            android:id="@+id/content_like"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5sp"
-            android:layout_gravity="center_vertical"
-            android:text="000"
-            android:textColor="@color/orange4" />
-
     </LinearLayout>
 
 </RelativeLayout>

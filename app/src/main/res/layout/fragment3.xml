@@ -39,17 +39,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button
-            android:id="@+id/go_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"/>
+<!--        <Button-->
+<!--            android:id="@+id/go_login"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="로그인"/>-->
 
-        <Button
-            android:id="@+id/go_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="메시지" />
+<!--        <Button-->
+<!--            android:id="@+id/go_message"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="메시지" />-->
 
     </LinearLayout>
 

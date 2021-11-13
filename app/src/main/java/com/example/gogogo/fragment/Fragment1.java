@@ -1,11 +1,14 @@
 package com.example.gogogo.fragment;
 
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,10 +24,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Fragment1 extends Fragment {
 
-    NavigationView navigationView;
 //    TextView toolbar_title;
-    Button cook_yes;
-    Button button2;
+    ImageView cook_yes;
+    ImageView cook_no;
 
     @Nullable
     @Override
@@ -34,9 +36,11 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment1, container, false);
 
         /* 객체 초기화 */
-        NavigationView navigationView = view.findViewById(R.id.drawer);
+
 //        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
-        cook_yes = (Button) view.findViewById(R.id.cook_yes);
+        cook_yes = (ImageView) view.findViewById(R.id.cook_yes);
+        cook_yes.setBackground(new ShapeDrawable(new OvalShape()));
+        cook_yes.setClipToOutline(true);
 
 //        toolbar_title.setText("메뉴 추천");  // 제목 설정
 
@@ -49,9 +53,11 @@ public class Fragment1 extends Fragment {
         });
 
         /* 요리안해 화면 전환 */
-        button2 = (Button) view.findViewById(R.id.button2);
+        cook_no = (ImageView) view.findViewById(R.id.cook_no);
+        cook_no.setBackground(new ShapeDrawable(new OvalShape()));
+        cook_no.setClipToOutline(true);
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        cook_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SurveyStart.class);

@@ -27,7 +27,9 @@
                 android:id="@+id/recipe_all"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
+                android:layout_marginBottom="10sp"
+                android:background="@drawable/round3"
+                android:padding="12sp"
                 android:text="전체 레시피 보러가기"
                 android:textColor="@color/orange3"
                 android:textStyle="bold"
@@ -46,9 +48,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/cook1"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:background="@drawable/circle"
+                        app:srcCompat="@drawable/simple"
                         android:backgroundTint="@color/silver2" />
 
                     <TextView
@@ -69,9 +72,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/cook2"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:background="@drawable/circle"
+                        app:srcCompat="@drawable/diet"
                         android:backgroundTint="@color/silver2" />
 
                     <TextView
@@ -91,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -100,9 +104,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/cook3"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:background="@drawable/circle"
+                        app:srcCompat="@drawable/sonnim"
                         android:backgroundTint="@color/silver2" />
 
                     <TextView
@@ -110,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="초간단"
+                        android:text="손님 접대"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -123,9 +128,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/cook4"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:background="@drawable/circle"
+                        app:srcCompat="@drawable/banchan"
                         android:backgroundTint="@color/silver2" />
 
                     <TextView
@@ -133,7 +139,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="초간단"
+                        android:text="반찬"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -145,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -154,9 +160,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/cook5"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:background="@drawable/circle"
+                        app:srcCompat="@drawable/nadeul"
                         android:backgroundTint="@color/silver2" />
 
                     <TextView
@@ -164,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="손님접대"
+                        android:text="나들이"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -177,9 +184,10 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/cook6"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:background="@drawable/circle"
+                        app:srcCompat = "@drawable/rice"
                         android:backgroundTint="@color/silver2" />
 
                     <TextView
@@ -187,7 +195,119 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_gravity="center"
-                        android:text="초간단"
+                        android:text="밥요리"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/cook7"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        app:srcCompat="@drawable/drink"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="술안주"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/cook8"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        app:srcCompat="@drawable/myeon"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="면요리"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/cook9"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        app:srcCompat="@drawable/snack"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="간식"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/cook10"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        app:srcCompat="@drawable/jjigae"
+                        android:backgroundTint="@color/silver2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_gravity="center"
+                        android:text="찌개/국"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 

@@ -42,9 +42,14 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_inquiry"
-            android:title="고객센터"
-            android:icon="@drawable/ic_baseline_contact_support_24" />
+            android:id="@+id/nav_message"
+            android:title="메세지"
+            android:icon="@drawable/ic_baseline_message_24" />
+
+        <item
+            android:id="@+id/nav_log"
+            android:title="로그인/로그아웃"
+            android:icon="@drawable/ic_baseline_login_24" />
 
     </group>
 

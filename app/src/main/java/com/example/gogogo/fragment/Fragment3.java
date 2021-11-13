@@ -24,8 +24,8 @@ public class Fragment3 extends Fragment {
 //    TextView toolbar_title;
     ViewPager viewPager;
     TabLayout tabLayout;
-    Button go_login;
-    Button go_message;
+//    Button go_login;
+//    Button go_message;
 
     @Nullable
     @Override
@@ -39,22 +39,22 @@ public class Fragment3 extends Fragment {
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         //임시버튼 두개
-        go_login = (Button) view.findViewById(R.id.go_login);
-        go_message = (Button)view.findViewById(R.id.go_message);
+//        go_login = (Button) view.findViewById(R.id.go_login);
+//        go_message = (Button)view.findViewById(R.id.go_message);
 
-        go_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-            }
-        });
+//        go_login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), LoginActivity.class));
+//            }
+//        });
 
-        go_message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ChatFragment.class));
-            }
-        });
+//        go_message.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), ChatFragment.class));
+//            }
+//        });
 
 //        toolbar_title.setText("커뮤니티");  // 제목 설정
 
