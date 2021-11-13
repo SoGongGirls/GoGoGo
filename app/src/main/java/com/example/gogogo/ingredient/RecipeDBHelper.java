@@ -15,10 +15,10 @@ import java.io.InputStream;
 
 public class RecipeDBHelper extends SQLiteOpenHelper {
 
-    static String NAME = "recipe3.db";//"testdb.sqlite"; //to-do
+    static String NAME = "recipe5.db";//"testdb.sqlite"; //to-do
     static SQLiteDatabase.CursorFactory FACTORY = null;
     static String PACKEGE = "com.example.gogogo"; //to-do
-    static String DB = "recipe3.db"; //To-do
+    static String DB = "recipe5.db"; //To-do
     static int VERSION  = 1;
     String TAG = "레시피db헬퍼";
 

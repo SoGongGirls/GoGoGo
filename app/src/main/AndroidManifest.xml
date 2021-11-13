@@ -97,6 +97,7 @@
         <activity android:name=".survey.SurveyMealElse" />
         <activity android:name=".survey.SurveyDessertDepressed2" />
         <activity android:name=".survey.SurveyDessertSad2" />
+        <activity android:name=".message.talking" />
     </application>
 
 </manifest>

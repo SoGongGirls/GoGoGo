@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.gogogo.fragment.ChatFragment;
 import com.example.gogogo.fragment.Fragment1;
 import com.example.gogogo.fragment.Fragment2;
 import com.example.gogogo.fragment.Fragment3;
@@ -84,9 +83,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_log:
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                        break;
-                    case R.id.nav_message:
-                        startActivity(new Intent(MainActivity.this, ChatFragment.class));
                         break;
                 }
                 drawer_layout.closeDrawer(navigationView);

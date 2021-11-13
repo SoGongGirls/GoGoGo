@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -47,6 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class talking extends AppCompatActivity {
     //출처: https://javapp.tistory.com/151 [Don't Quit ! DOIT 포기하지 말자]
 
@@ -58,7 +61,8 @@ public class talking extends AppCompatActivity {
 
     private Button button;
     private EditText editText;
-//    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy.MM.dd HH:mm");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyy.MM.dd HH:mm");
+    private User destUser;
 
     private String TAG = "토킹";
 
@@ -71,10 +75,10 @@ public class talking extends AppCompatActivity {
 
 //    @Override
 //    public void onBackPressed(){
-//        Intent intent = new(talking.this, MessageMain.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
-//        | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent);
+//        Intent intentcc = new(talking.this, MessageMain.class);
+//        intentcc.setFlags(Intentcc.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
+//        | Intentcc.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intentcc);
 //        overridePendingTransition(R.anim.in_left, R.anim.out_right);
 //    }
 
@@ -83,70 +87,6 @@ public class talking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.talking);
 
-//        mRecyclerView = findViewById(R.id.talking_list);
-//        mRecyclerView.setHasFixedSize(true);
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//
-//        editText = findViewById(R.id.talking_edt);
-//        button = findViewById(R.id.talking_submit);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String msg = editText.getText().toString();
-//                Date now = new Date();
-//                if(msg != null){
-//                    ChatData chat = new ChatData();
-//                    chat.setNickname(nick);
-//                    chat.setTime(now);
-//                    chat.setMsg(msg);
-//                    myRef.push().setValue(chat);
-//                }
-//            }
-//        });
-//
-//        chatlist = new ArrayList<>();
-//        mAdapter = new ChatAdapter(chatlist, talking.this, nick);
-//        mRecyclerView.setAdapter(mAdapter);
-//
-//        myRef.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//                ChatData chat = dataSnapshot.getValue(ChatData.class);//채팅데이터를 가져온다
-//                ((ChatAdapter)mAdapter).addChat(chat);
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
-
-        //init();
-        //sendMsg();
-        init();
-        sendTalk();
-    }//onCreate
-
-
-    private void init(){
         myuid = FirebaseAuth.getInstance().getCurrentUser().getUid(); // 채팅 보내는 사람
         destUid = getIntent().getStringExtra("destUid"); //채팅 상대
 
@@ -158,7 +98,8 @@ public class talking extends AppCompatActivity {
         else button.setEnabled(true);
 
         checkChatRoom();
-    }
+        sendTalk();
+    }//onCreate
 
 
     //chatRoomUid (채팅방 아이디, 첫 대화일때 chatRoomUid 은 NULL 이다.)
@@ -240,33 +181,26 @@ public class talking extends AppCompatActivity {
 
 
     public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
-        private FirebaseAuth mAuth = FirebaseAuth.getInstance();
         private List<ChatModel.Comment> comments;
+
 
         public ChatAdapter(){
             comments = new ArrayList<>();
-            //getDestUid();
+            getDestUid();
         }
+        private void getDestUid(){
+            FirebaseDatabase.getInstance().getReference().child("users").child(destUid).addListenerForSingleValueEvent(new ValueEventListener(){
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot){
+                    destUser = snapshot.getValue(User.class);
+                    getMessageList();
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error){
 
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+                }
+            });
         }
-
-//        private void getDestUid(){
-//            mAuth.getUid(destUid).addListenerForSingleValueEvent(new ValueEventListener(){
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot){
-//                    User destUser = snapshot.getValue(User.class);
-//                    getMessageList();
-//                }
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error){
-//
-//                }
-//            });
-//        }
         //채팅 내용 읽어들임
         private void getMessageList() {
             FirebaseDatabase.getInstance().getReference().child("chatrooms").child(chatRoomUid).child("comments")
@@ -285,39 +219,44 @@ public class talking extends AppCompatActivity {
 
                         }
                     });
+
+        }
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_item_you,parent, false);
+            return new ViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             ViewHolder viewHolder = ((ViewHolder)holder);
             if(comments.get(position).uid.equals(myuid)) {//나의 uid 이면
                 //나의 말풍선 오른쪽으로
                 viewHolder.textViewMsg.setText(comments.get(position).message);
                 viewHolder.textViewMsg.setBackgroundResource(R.drawable.mybubble);
-                viewHolder.linearLayoutDest.setVisibility(View.INVISIBLE);
+//                viewHolder.linearLayoutDest.setVisibility(View.INVISIBLE);
                 //상대방 레이아웃
                 viewHolder.linearLayoutRoot.setGravity(Gravity.RIGHT);
                 viewHolder.linearLayoutTime.setGravity(Gravity.RIGHT);
             }else{
                 //상대방 말풍선 왼쪽
 //                viewHolder.textViewName.setText(destUser.name);
-                viewHolder.linearLayoutDest.setVisibility(View.VISIBLE);
+                Log.e(TAG, destUser + "");
+                viewHolder.textViewName.setText("임시");
+//                viewHolder.linearLayoutDest.setVisibility(View.VISIBLE);
                 viewHolder.textViewMsg.setBackgroundResource(R.drawable.yoububble);
                 viewHolder.textViewMsg.setText(comments.get(position).message);
                 viewHolder.linearLayoutRoot.setGravity(Gravity.LEFT);
                 viewHolder.linearLayoutTime.setGravity(Gravity.LEFT);
             }
-//            viewHolder.textViewTimeStamp.setText(getDateTime(position));
+            long unixTime = (long) comments.get(position).timestamp;
+            Date date = new Date(unixTime);
+//            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+            String time = simpleDateFormat.format(date);
+            viewHolder.textViewTimeStamp.setText(time);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.N)
-//        public String getDateTime(int position) {
-//            long unixTime=(long) comments.get(position).timestamp;
-//            Date date = new Date(unixTime);
-//            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
-//            String time = simpleDateFormat.format(date);
-//            return time;
-//        }
 
         @Override public int getItemCount() {
             return comments.size();
@@ -341,7 +280,6 @@ public class talking extends AppCompatActivity {
                 linearLayoutTime = (LinearLayout)itemView.findViewById(R.id.item_messagebox_layout_timestamp);
             }
         }
-
     }
 
 }
