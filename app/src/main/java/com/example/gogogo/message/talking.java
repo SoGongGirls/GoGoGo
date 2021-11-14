@@ -243,7 +243,7 @@ public class talking extends AppCompatActivity {
                 //상대방 말풍선 왼쪽
 //                viewHolder.textViewName.setText(destUser.name);
                 Log.e(TAG, destUser + "");
-                viewHolder.textViewName.setText("임시");
+                viewHolder.textViewName.setText("2번친구");
 //                viewHolder.linearLayoutDest.setVisibility(View.VISIBLE);
                 viewHolder.textViewMsg.setBackgroundResource(R.drawable.yoububble);
                 viewHolder.textViewMsg.setText(comments.get(position).message);
