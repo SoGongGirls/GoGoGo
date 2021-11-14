@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.gogogo.R;
 
@@ -33,6 +34,10 @@ public class Recommend_recipe extends AppCompatActivity {
         intent = getIntent();
         String inputING = intent.getStringExtra("inputING");
         ArrayList<String> IngList = new ArrayList<String>(Arrays.asList(inputING.split(" ")));
+
+        TextView bar_title = findViewById(R.id.toolbar_title2);
+        bar_title.setText("재료 추천 레시피");
+
         R_ListView = (ListView) findViewById(R.id.R_ListView);
         adapter = new RecipeAdapter(getApplicationContext());
 
