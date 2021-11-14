@@ -2,49 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15sp"
     android:orientation="vertical">
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/white">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/reply_nick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="작성자"/>
+                android:textColor="@color/orange2"
+                android:text="작성자"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/reply_time"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="시간"/>
+                android:text="시간"
+                android:textSize="15sp" />
+
         </LinearLayout>
-            <LinearLayout
+
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:text="삭제"/>
+                    android:text="삭제"
+                    android:background="@drawable/round_button"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:text="임시" />
+<!--                <Button-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:text="임시" />-->
             </LinearLayout>
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/reply_contents"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:text="contents"/>
+            android:text="contents"
+            android:textSize="18sp"/>
 
 </LinearLayout>

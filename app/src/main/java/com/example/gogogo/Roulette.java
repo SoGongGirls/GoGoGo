@@ -283,7 +283,7 @@ public class Roulette extends AppCompatActivity {
     // if you want use AlertDialog then use this
     private void buildAlert(String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Result")
+        builder.setTitle("메뉴 추천 결과!")
                 .setMessage(text)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener(){
                     @Override

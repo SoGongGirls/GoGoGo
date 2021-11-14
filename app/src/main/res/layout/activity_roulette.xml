@@ -19,14 +19,21 @@
             android:id="@+id/btnRotate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="spin" />
+            android:background="@drawable/round1"
+            android:layout_margin="10sp"
+            android:padding="15sp"
+            android:text="룰렛 돌리기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15sp"
             android:layout_gravity="center"
-            android:background="@drawable/label" />
+            android:background="@drawable/label"
+            android:backgroundTint="@color/orange3"/>
 
         <RelativeLayout
             android:id="@+id/layoutRoulette"
@@ -43,16 +50,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:text="result"
-            android:textSize="25sp"/>
+            android:layout_marginTop="20dp"
+            android:text="메뉴 추천 결과!"
+            android:textColor="@color/orange4"
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/locationButton"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40sp"
+            android:layout_marginTop="25sp"
             android:padding="15sp"
             android:text="내 위치 확인하기"
             android:textStyle="bold"
