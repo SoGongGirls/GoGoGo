@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -64,6 +65,8 @@ public class PostingActivity extends AppCompatActivity {
     private String destId;
 
     String reply_nicks;
+    TextView toolbar_title2;
+    ImageView button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,17 @@ public class PostingActivity extends AppCompatActivity {
         edt_comment = findViewById(R.id.edt_comment);
         submit_comment = findViewById(R.id.submit_comment);
         mReplyView = findViewById(R.id.post_comment_list);
+
+        toolbar_title2 = findViewById(R.id.toolbar_title2);
+        toolbar_title2.setText("커뮤니티");
+
+        button2 = findViewById(R.id.back2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               onBackPressed();
+            }
+        });
 
         go_chat = findViewById(R.id.go_chat);
         mDatas = new ArrayList<>();

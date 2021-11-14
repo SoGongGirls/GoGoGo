@@ -77,10 +77,6 @@
         android:textColor="@color/black"
         tools:text="본문입니다.^^"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10sp"
-        android:background="@color/silver1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,8 +94,6 @@
     </LinearLayout>
 
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,14 +107,16 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="5sp"
             android:hint="댓글을 입력해주세요."
             android:background="@android:color/transparent"/>
 
         <Button
             android:id="@+id/submit_comment"
             android:layout_width="30sp"
-            android:layout_height="35sp"
-            android:background="@drawable/ic_baseline_send_24"
+            android:layout_height="25sp"
+            android:layout_marginRight="15sp"
+            android:background="@drawable/ic_baseline_arrow_forward_24"
             android:backgroundTint="@color/orange3"/>
 
     </LinearLayout>

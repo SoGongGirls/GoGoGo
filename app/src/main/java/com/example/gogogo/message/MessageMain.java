@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gogogo.R;
@@ -42,9 +43,21 @@ public class MessageMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_main);
 
+        TextView toolbar_title2 = findViewById(R.id.toolbar_title2);
+        ImageView back2 = findViewById(R.id.back2);
+
         RecyclerView recyclerView = findViewById(R.id.message_list);
         recyclerView.setAdapter(new ChatRecyclerViewAdapter());
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        toolbar_title2.setText("채팅방 목록");
+
+        back2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     }
 

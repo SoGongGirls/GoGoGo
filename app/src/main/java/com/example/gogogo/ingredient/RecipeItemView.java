@@ -1,6 +1,8 @@
 package com.example.gogogo.ingredient;
 
 import android.content.Context;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.Button;
@@ -51,6 +53,8 @@ public class RecipeItemView extends LinearLayout {
     }
 
     public void setImage(String url){
+        imageView.setBackground(new ShapeDrawable(new OvalShape()));
+        imageView.setClipToOutline(true);
         Glide.with(this).load(url).error(R.drawable.no_image).into(imageView);
     }
     public void setBook(int rcode){

@@ -41,8 +41,8 @@ public class Recipe_all extends AppCompatActivity {
 
         /* 객체 초기화 */
         recipe_list = findViewById(R.id.recipe_list);
-        back = findViewById(R.id.back);
-        toolbar_title = findViewById(R.id.toolbar_title);
+        back = findViewById(R.id.back2);
+        toolbar_title = findViewById(R.id.toolbar_title2);
 
         String tableName = "recipe_info";
 

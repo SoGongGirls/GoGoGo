@@ -2,6 +2,8 @@ package com.example.gogogo.ingredient;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,8 @@ public class ProcessItemView extends LinearLayout {
         else tvTip.setText(tip);
     }
     public void setImage(String url){
+        Process_IMG.setBackground(new ShapeDrawable(new OvalShape()));
+        Process_IMG.setClipToOutline(true);
         if (url == null) Process_IMG.setVisibility(View.GONE);
         else Glide.with(this).load(url).error(R.drawable.no_image).into(Process_IMG);
 

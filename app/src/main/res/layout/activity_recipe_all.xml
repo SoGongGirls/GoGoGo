@@ -8,7 +8,7 @@
     tools:context=".Recipe_all">
 
     <include
-        layout="@layout/toolbar_back"
+        layout="@layout/toolbar_back2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

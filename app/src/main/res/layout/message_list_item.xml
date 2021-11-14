@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout
     android:orientation="horizontal"
-    android:layout_height="70dp"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_margin="10dp"
+        android:layout_gravity="center"
         android:background="@drawable/ic_baseline_person_24" />
 
     <LinearLayout
@@ -17,10 +18,12 @@
         android:layout_width="275dp">
 
         <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/item_chat_tv_title"
+            android:layout_marginRight="50dp"
             android:text="방이름"
+            android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"/>
 
@@ -29,16 +32,17 @@
             android:layout_width="match_parent"
             android:id="@+id/item_chat_tv_comment"
             android:text="내용"
+            android:textSize="15sp"
             android:layout_marginTop="5dp"/>
 
-    </LinearLayout>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/item_chat_tv_timestamp"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"/>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/item_chat_tv_timestamp"
-        android:layout_marginTop="10dp"
-        android:textSize="9dp"/>
+    </LinearLayout>
 
 </LinearLayout>
 
