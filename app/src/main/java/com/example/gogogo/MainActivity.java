@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.gogogo.bookmark.my_bookmark;
 import com.example.gogogo.fragment.Fragment1;
 import com.example.gogogo.fragment.Fragment2;
 import com.example.gogogo.fragment.Fragment3;
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_message:
                         startActivity(new Intent(MainActivity.this, MessageMain.class));
+                        break;
+                    case R.id.nav_bookmark:
+                        startActivity(new Intent(MainActivity.this, my_bookmark.class));
                         break;
                 }
                 drawer_layout.closeDrawer(navigationView);
