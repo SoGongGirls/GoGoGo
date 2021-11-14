@@ -37,6 +37,7 @@ public class my_bookmark extends AppCompatActivity {
 
 
         B_ListView = findViewById(R.id.B_ListView);
+        bar_title = findViewById(R.id.toolbar_title2);
         bar_title.setText("북마크");
 
         RecipeAdapter adapter = new RecipeAdapter(getApplicationContext());

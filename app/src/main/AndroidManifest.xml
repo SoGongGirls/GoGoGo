@@ -98,6 +98,7 @@
         <activity android:name=".survey.SurveyDessertDepressed2" />
         <activity android:name=".survey.SurveyDessertSad2" />
         <activity android:name=".message.talking" />
+        <activity android:name=".bookmark.my_bookmark"/>
     </application>
 
 </manifest>
