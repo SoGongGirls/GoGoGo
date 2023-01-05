@@ -1,10 +1,7 @@
 package com.example.gogogo.storeInfo;
 
-import android.util.Log;
-
-import com.example.gogogo.MainActivity;
 import com.example.gogogo.Roulette;
-import com.example.gogogo.my_location;
+
 
 public class DeliveryItem {
 

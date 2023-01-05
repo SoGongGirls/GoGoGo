@@ -21,11 +21,6 @@ public class SurveyStart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.survey_start);
 
-        // 이미지뷰 동그랗게
-        start = (ImageView) findViewById(R.id.start);
-        start.setBackground(new ShapeDrawable(new OvalShape()));
-        start.setClipToOutline(true);
-
         Button button = (Button) findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {

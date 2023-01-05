@@ -10,11 +10,6 @@
             android:title="알레르기 필터링"
             android:icon="@drawable/ic_baseline_no_meals_24" />
 
-        <item
-            android:id="@+id/nav_location"
-            android:title="내 위치 확인"
-            android:icon="@drawable/ic_baseline_location_on_24" />
-
     </group>
 
 

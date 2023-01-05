@@ -68,8 +68,8 @@ public class Roulette extends AppCompatActivity {
     private static final int PERMISSONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
 
-    public static double myLatitude;   // 내 위치 위도
-    public static double myLongitude;   // 내 위치 경도
+    public static double myLatitude = 0.0;   // 내 위치 위도
+    public static double myLongitude = 0.0;   // 내 위치 경도
 
 
     @Override
@@ -106,24 +106,10 @@ public class Roulette extends AppCompatActivity {
             checkRunTimePermission();
         }
 
-        // final TextView textView2 = (TextView) findViewById(R.id.locationText);  // 내 위치 보여주는 텍스트뷰
-        Button locationButton = (Button) findViewById(R.id.locationButton);  // 내 위치 확인 버튼
-
         gpsTracker = new GpsTracker(Roulette.this);
 
         myLatitude = gpsTracker.getLatitude();
         myLongitude = gpsTracker.getLongitude();
-
-        locationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String address = getCurrentAddress(myLatitude, myLongitude);
-//                textView2.setText(address);
-
-//                Toast.makeText(Roulette.this, "현재위치 \n위도 " + myLatitude + "\n경도 " + myLongitude,
-//                        Toast.LENGTH_LONG).show();
-            }
-        });
 
 
         // 내 주변 매장 확인하기

@@ -13,10 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.gogogo.storeInfo.StoreDetail;
-import com.example.gogogo.storeInfo.StoreList;
-import com.example.gogogo.storeInfo.SurveyResult;
-
 import org.w3c.dom.Text;
 
 public class Cook_Yes extends AppCompatActivity {

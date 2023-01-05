@@ -42,6 +42,7 @@ public class DeliveryList extends Fragment {
 
         // 리스트뷰 참조 및 Adapter 연결
         adapter = new DeliveryListAdapter(getActivity());
+        adapter.removeItemAll();
 
         //맨처음 초기화 데이터 보여주기(select)
         if (database != null) {
