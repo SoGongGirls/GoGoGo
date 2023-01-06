@@ -5,8 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -21,26 +21,21 @@ public class DeliveryDetail extends AppCompatActivity {
     SQLiteDatabase db;
     StoreListAdapter apdater;
     String id;
-    ListView lvProcess;
-
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_detail);
 
-//        Button button = findViewById(R.id.return1);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.putExtra("name", "mike");
-//                setResult(RESULT_OK, intent);
-//                finish();
-//            }
-//        });
+        back = (ImageView) findViewById(R.id.back);
 
-        // View return1 = findViewById(R.id.return1);   // 뒤로가기 버튼
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
@@ -94,13 +89,5 @@ public class DeliveryDetail extends AppCompatActivity {
         else {
             Log.e(TAG, "selectData() db없음.");
         }
-
-//        // back 버튼 구현
-//        return1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
     }
 }

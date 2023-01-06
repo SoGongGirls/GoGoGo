@@ -65,6 +65,14 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:text="새로운 재료를 추가했다면 새로고침 버튼을 눌러주세요" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

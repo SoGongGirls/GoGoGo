@@ -30,9 +30,8 @@ public class Ingredient_add extends AppCompatActivity {
     Button datePick;
     private DatePickerDialog.OnDateSetListener callbackMethod;
     Button submit;
-    EditText name;
+    EditText name;  // 재료명
     String TAG=" Ingredient_add.java";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,18 +61,19 @@ public class Ingredient_add extends AppCompatActivity {
                 OnClickHandler(datePick);
             }
         });
+
+
+        /* DB 등록 */
         InitializeView();
         InitializeListener();
-
-
 
         submit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 //DB에 데이터 등록하기.
                 IngredientDBQuery IQ = new IngredientDBQuery(getApplicationContext());
-                String name2 = name.getText().toString();
-                //2020년 08월 14일 -> 2020-08-04
+                String name2 = name.getText().toString();  // 재료명
+                // 구매 날짜, 2020년 08월 14일 -> 2020-08-04
                 String date2 = dateSet.getText().toString().replace("년 ", "-").replace("월 " , "-").replace("일", "");
                 Log.v(TAG, date2);
 //                SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -119,10 +119,6 @@ public class Ingredient_add extends AppCompatActivity {
         );
         dialog.show();
     }
-
-
-
-
 }
 
 

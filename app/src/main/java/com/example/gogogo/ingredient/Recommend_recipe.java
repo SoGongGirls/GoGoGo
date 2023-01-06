@@ -41,18 +41,18 @@ public class Recommend_recipe extends AppCompatActivity {
         R_ListView = (ListView) findViewById(R.id.R_ListView);
         adapter = new RecipeAdapter(getApplicationContext());
 
-        //db실행
+        // db실행
         RecipeDBHelper helper = new RecipeDBHelper(getApplicationContext());
         DB = helper.getWritableDatabase();
         if (DB != null) { Log.v(TAG, "DB열기 성공!");
         } else { Log.e(TAG, "DB열기 실패!"); }
 
-        //추천 레시피 가져오기
+        // 추천 레시피 가져오기
         if (DB != null) {
             ArrayList<ArrayList> curList = new ArrayList<ArrayList>(); //[토마토rcode리스트, 계란rcode리스트]
             String IngredientTable= "recipe_ingredient";
 
-            //재료별 rcode 저장
+            // 재료별 rcode 저장
             for(int i=0; i<IngList.size(); i++){
                 String query = "select rcode from "+IngredientTable+" where search_name=\""+IngList.get(i)+"\"";
                 ArrayList<Integer> rcode = new ArrayList<Integer>();
@@ -75,13 +75,13 @@ public class Recommend_recipe extends AppCompatActivity {
                 }
             }
 
-            //일치하는 rcode만 찾기
+            // 일치하는 rcode만 찾기
             Log.v(TAG, "일치하는 rcode 찾기");
             ArrayList<Integer> realRcode = new ArrayList<>();
             realRcode = curList.remove(0);
             realRcode = SearchRealRcode.searchVal(realRcode, curList);
 
-            //real rcode 조회
+            // real rcode 조회
             for(int k = 0; k < realRcode.size(); k++){
                 //for(int k = 0; k < 14; k++){
                 Log.v(TAG, String.valueOf(realRcode.size()));
@@ -90,12 +90,15 @@ public class Recommend_recipe extends AppCompatActivity {
                 //String q = "select name, foodtypename from recipe_info where rcode="+curList.get(0).get(k);
                 Cursor cursor = DB.rawQuery(q, null);
                 Log.v(TAG, "조회된 데이터 수 : " + cursor.getCount());
-                cursor.moveToNext();
-                String name = cursor.getString(0);
-                String foodtypename = cursor.getString(1);
-                int rcode = cursor.getInt(2);
-                String img_url = cursor.getString(3);
-                adapter.addItem(new RecipeItem(name, foodtypename, rcode, img_url ));
+
+                if (cursor.getCount() != 0) {
+                    cursor.moveToNext();
+                    String name = cursor.getString(0);
+                    String foodtypename = cursor.getString(1);
+                    int rcode = cursor.getInt(2);
+                    String img_url = cursor.getString(3);
+                    adapter.addItem(new RecipeItem(name, foodtypename, rcode, img_url ));
+                }
                 cursor.close();
             }
             adapter.notifyDataSetChanged();
@@ -106,7 +109,7 @@ public class Recommend_recipe extends AppCompatActivity {
             Log.e(TAG, "추천레시피검색 오류 db없음.");
         }
 
-        //상세페이지로 연결
+        // 상세페이지로 연결
         R_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

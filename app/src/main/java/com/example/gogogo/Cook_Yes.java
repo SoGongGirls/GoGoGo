@@ -197,10 +197,5 @@ public class Cook_Yes extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
     }
 }

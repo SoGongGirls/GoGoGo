@@ -25,7 +25,7 @@
 
         <item
             android:id="@+id/nav_note"
-            android:title="레시피 노트"
+            android:title="메모"
             android:icon="@drawable/ic_baseline_library_books_24" />
 
     </group>
@@ -38,7 +38,7 @@
 
         <item
             android:id="@+id/nav_message"
-            android:title="메세지"
+            android:title="메시지"
             android:icon="@drawable/ic_baseline_message_24" />
 
         <item

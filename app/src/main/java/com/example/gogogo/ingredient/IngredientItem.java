@@ -11,7 +11,6 @@ public class IngredientItem {
     String ingredient_date;     // 재료 유통기한
     boolean check = false;
 
-
     public Drawable getIngredient_img() {
         return ingredient_img;
     }

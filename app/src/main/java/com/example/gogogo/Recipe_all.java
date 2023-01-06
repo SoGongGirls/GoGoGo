@@ -26,7 +26,7 @@ public class Recipe_all extends AppCompatActivity {
     public static final String TAG ="태그 Recipe_all.java" ;
     private SQLiteDatabase database;
     private ListView recipe_list;
-    private ImageView back;
+    private ImageView back2;
     private TextView toolbar_title;
     private RecipeAdapter adapter;
     private String query = null;
@@ -41,8 +41,15 @@ public class Recipe_all extends AppCompatActivity {
 
         /* 객체 초기화 */
         recipe_list = findViewById(R.id.recipe_list);
-        back = findViewById(R.id.back2);
+        back2 = (ImageView) findViewById(R.id.back2);
         toolbar_title = findViewById(R.id.toolbar_title2);
+
+        back2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         String tableName = "recipe_info";
 
@@ -72,14 +79,6 @@ public class Recipe_all extends AppCompatActivity {
             default: toolbar_title.setText("전체 레시피");
                         break;
         }
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
-
 
         adapter = new RecipeAdapter(this);
 

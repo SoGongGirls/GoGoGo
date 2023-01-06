@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.amitshekhar.DebugDB;
 import com.example.gogogo.R;
 import com.example.gogogo.ingredient.IngredientAdapter;
 import com.example.gogogo.ingredient.IngredientDBQuery;
@@ -33,7 +34,6 @@ import java.util.List;
 public class Fragment2 extends Fragment {
 
     IngredientAdapter adapter;
-//    TextView toolbar_title;
     ListView ingredient_list;
     ImageView ingredient_add;
     ImageView ingredient_refresh;
@@ -43,23 +43,19 @@ public class Fragment2 extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment2, container, false);
 
         /* 객체 초기화 */
         adapter = new IngredientAdapter();
-//        toolbar_title = (TextView) view.findViewById(R.id.toolbar_title);
         ingredient_list = (ListView) view.findViewById(R.id.ingredient_list);
         ingredient_add = (ImageView) view.findViewById(R.id.ingredient_add);
         ingredient_refresh = (ImageView) view.findViewById(R.id.ingredient_refresh);
         recipe_search = (Button) view.findViewById(R.id.recipe_search);
 
-//        toolbar_title.setText("나의 냉장고");   // 제목 설정
         ingredient_list.setAdapter(adapter);  // 리스트뷰 어댑터 설정
 
-        //재료 추가버튼
+        // 재료 추가버튼
         ingredient_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,8 +67,17 @@ public class Fragment2 extends Fragment {
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
                 "아보카도", "2021년 09월 19일");
 
+        DebugDB.getAddressLog();
 
-        //보여줄 데이터 가져오기
+        // 새로고침 버튼
+        ingredient_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                refresh();
+            }
+        });
+
+        // 보여줄 데이터 가져오기
         IngredientDBQuery IQ = new IngredientDBQuery(getActivity());
         ArrayList<IngredientItem> items = IQ.AllData();
         Log.v(TAG, ""+IQ.countDB());
@@ -86,7 +91,7 @@ public class Fragment2 extends Fragment {
 
         }
 
-        //레시피 검색
+        // 레시피 검색
         recipe_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,15 +117,6 @@ public class Fragment2 extends Fragment {
             }
         });
 
-
-        ingredient_refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                refresh();
-            }
-        });
-
-
         return view;
 
     }// OnCreateView
@@ -130,5 +126,4 @@ public class Fragment2 extends Fragment {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();
     }
-
 }
