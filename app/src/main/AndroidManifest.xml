@@ -36,9 +36,6 @@
             android:name=".my_note"
             android:exported="true" />
         <activity
-            android:name=".my_location"
-            android:exported="true" />
-        <activity
             android:name=".Cook_Yes"
             android:exported="true" />
         <activity
@@ -72,6 +69,9 @@
             android:exported="true" /> <!-- .MainActivity -->
         <activity
             android:name=".MainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".IntroPage"
             android:exported="true">
 
             <!-- android:windowSoftInputMode="adjustPan"> -->

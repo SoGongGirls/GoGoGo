@@ -73,7 +73,9 @@ public class Fragment2 extends Fragment {
         ingredient_refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                refresh();
+                Intent intent = getActivity().getIntent();
+                getActivity().finish();
+                startActivity(intent);
             }
         });
 
@@ -120,10 +122,4 @@ public class Fragment2 extends Fragment {
         return view;
 
     }// OnCreateView
-
-
-    private void refresh() {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.detach(this).attach(this).commit();
-    }
 }

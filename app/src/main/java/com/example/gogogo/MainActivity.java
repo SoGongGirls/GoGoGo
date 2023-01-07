@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.gogogo.bookmark.my_bookmark;
 import com.example.gogogo.fragment.Fragment1;
@@ -79,11 +80,16 @@ public class MainActivity extends AppCompatActivity {
                         Intent i_bookmark = new Intent(MainActivity.this, my_note.class);
                         startActivity(i_bookmark);
                         break;
-                    case R.id.nav_log:
-                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                        break;
+//                    case R.id.nav_log:
+//                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+//                        break;
                     case R.id.nav_message:
-                        startActivity(new Intent(MainActivity.this, MessageMain.class));
+//                        startActivity(new Intent(MainActivity.this, MessageMain.class));
+                        Toast.makeText(getApplicationContext(), "준비 중입니다", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_filter:
+//                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        Toast.makeText(getApplicationContext(), "준비 중입니다", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.nav_bookmark:
                         startActivity(new Intent(MainActivity.this, my_bookmark.class));
