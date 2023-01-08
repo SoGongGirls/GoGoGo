@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gogogo">
+    package="com.sogonggirls.gogogo">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,63 +15,63 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".message.MessageMain"
+            android:name="com.sogonggirls.gogogo.message.MessageMain"
             android:exported="true" />
         <activity
-            android:name=".community.PostingActivity"
+            android:name="com.sogonggirls.gogogo.community.PostingActivity"
             android:exported="true" />
         <activity
-            android:name=".login.SignupActivity"
+            android:name="com.sogonggirls.gogogo.login.SignupActivity"
             android:exported="true" />
         <activity
-            android:name=".login.LoginActivity"
+            android:name="com.sogonggirls.gogogo.login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".memo.UpdateActivity"
+            android:name="com.sogonggirls.gogogo.memo.UpdateActivity"
             android:exported="true" />
         <activity
-            android:name=".memo.InsertActivity"
+            android:name="com.sogonggirls.gogogo.memo.InsertActivity"
             android:exported="true" />
         <activity
-            android:name=".my_note"
+            android:name="com.sogonggirls.gogogo.my_note"
             android:exported="true" />
         <activity
-            android:name=".Cook_Yes"
+            android:name="com.sogonggirls.gogogo.Cook_Yes"
             android:exported="true" />
         <activity
-            android:name=".Cook_No"
+            android:name="com.sogonggirls.gogogo.Cook_No"
             android:exported="true" />
         <activity
-            android:name=".Recipe_all"
+            android:name="com.sogonggirls.gogogo.Recipe_all"
             android:exported="true" />
         <activity
-            android:name=".ingredient.Recipe"
+            android:name="com.sogonggirls.gogogo.ingredient.Recipe"
             android:exported="true" />
         <activity
-            android:name=".ingredient.Recommend_recipe"
+            android:name="com.sogonggirls.gogogo.ingredient.Recommend_recipe"
             android:exported="true" />
         <activity
-            android:name=".storeInfo.StoreDetail"
+            android:name="com.sogonggirls.gogogo.storeInfo.StoreDetail"
             android:exported="true" />
         <activity
-            android:name=".storeInfo.DeliveryDetail"
+            android:name="com.sogonggirls.gogogo.storeInfo.DeliveryDetail"
             android:exported="true" />
         <activity
-            android:name=".community.Community_update1"
+            android:name="com.sogonggirls.gogogo.community.Community_update1"
             android:exported="true" />
         <activity
-            android:name=".community.Community_insert1"
+            android:name="com.sogonggirls.gogogo.community.Community_insert1"
             android:exported="true" /> <!-- <activity -->
         <!-- android:name=".fragment.fragment1" -->
         <!-- android:exported="true" /> -->
         <activity
-            android:name=".ingredient.Ingredient_add"
+            android:name="com.sogonggirls.gogogo.ingredient.Ingredient_add"
             android:exported="true" /> <!-- .MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.sogonggirls.gogogo.MainActivity"
             android:exported="true"></activity>
         <activity
-            android:name=".IntroPage"
+            android:name="com.sogonggirls.gogogo.IntroPage"
             android:exported="true">
 
             <!-- android:windowSoftInputMode="adjustPan"> -->
@@ -81,24 +81,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".storeInfo.StoreRecommend" />
-        <activity android:name=".survey.SurveyMeal" />
-        <activity android:name=".survey.SurveyDessertGood" />
-        <activity android:name=".survey.SurveyDessertBad" />
-        <activity android:name=".survey.SurveyDessertDepressed" />
-        <activity android:name=".survey.SurveyDessertAngry" />
-        <activity android:name=".survey.SurveyDessertSad" />
-        <activity android:name=".survey.SurveyDessert" />
-        <activity android:name=".survey.SurveyStart2" />
-        <activity android:name=".survey.SurveyStart" />
-        <activity android:name=".survey.SurveyMealMeat" />
-        <activity android:name=".Roulette" />
-        <activity android:name=".survey.SurveyMealFish" />
-        <activity android:name=".survey.SurveyMealElse" />
-        <activity android:name=".survey.SurveyDessertDepressed2" />
-        <activity android:name=".survey.SurveyDessertSad2" />
-        <activity android:name=".message.talking" />
-        <activity android:name=".bookmark.my_bookmark"/>
+        <activity android:name="com.sogonggirls.gogogo.storeInfo.StoreRecommend" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyMeal" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertGood" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertBad" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertDepressed" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertAngry" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertSad" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessert" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyStart2" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyStart" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyMealMeat" />
+        <activity android:name="com.sogonggirls.gogogo.Roulette" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyMealFish" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyMealElse" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertDepressed2" />
+        <activity android:name="com.sogonggirls.gogogo.survey.SurveyDessertSad2" />
+        <activity android:name="com.sogonggirls.gogogo.message.talking" />
+        <activity android:name="com.sogonggirls.gogogo.bookmark.my_bookmark"/>
     </application>
 
 </manifest>
