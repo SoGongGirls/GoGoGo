@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.amitshekhar.DebugDB;
 import com.sogonggirls.gogogo.R;
 import com.sogonggirls.gogogo.ingredient.IngredientAdapter;
 import com.sogonggirls.gogogo.ingredient.IngredientDBQuery;
@@ -62,8 +61,6 @@ public class Fragment2 extends Fragment {
 
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.ic_launcher_background),
                 "아보카도", "2021년 09월 19일");
-
-        DebugDB.getAddressLog();
 
         // 새로고침 버튼
         ingredient_refresh.setOnClickListener(new View.OnClickListener() {
